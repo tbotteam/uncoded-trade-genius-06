@@ -34,6 +34,23 @@
   .hero-gradient {
     background: radial-gradient(circle at center, rgba(255, 184, 0, 0.15) 0%, transparent 70%);
   }
+
+  .grid-background {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .glow {
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.2),
+                0 0 40px rgba(255, 184, 0, 0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #FFB800 0%, #FF8A00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .animate-on-scroll {
@@ -45,4 +62,31 @@
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.grid-lines {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 184, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 184, 0, 0.05) 1px, transparent 1px);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 1; }
+  50% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(0.95); opacity: 1; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
