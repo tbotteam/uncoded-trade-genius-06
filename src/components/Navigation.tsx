@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Settings } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,25 +25,24 @@ export const Navigation = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                <div className="w-6 h-6 rounded-full bg-primary animate-pulse" />
+                <div className="w-6 h-6 rounded-full bg-primary" />
               </div>
               <span className="text-xl font-bold text-white">unCoded</span>
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-primary transition-colors">
-              Features
+          <div className="hidden md:flex items-center space-x-6">
+            <a href="#learn" className="text-gray-300 hover:text-primary transition-colors">
+              Learn
             </a>
-            <a href="#statistics" className="text-gray-300 hover:text-primary transition-colors">
-              Statistics
+            <a href="#community" className="text-gray-300 hover:text-primary transition-colors">
+              Community
             </a>
-            <a href="#pricing" className="text-gray-300 hover:text-primary transition-colors">
-              Pricing
-            </a>
-            <button className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
-              <Settings className="w-4 h-4" />
-              <span>Dashboard</span>
+            <button className="px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+              Add unCoded
+            </button>
+            <button className="px-4 py-2 rounded-lg bg-[#1A1A1A]/80 text-white hover:bg-[#1A1A1A] border border-white/10 transition-all">
+              Dashboard
             </button>
           </div>
 
@@ -62,26 +61,22 @@ export const Navigation = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 backdrop-blur-lg">
             <a
-              href="#features"
+              href="#learn"
               className="block px-3 py-2 rounded-md text-gray-300 hover:text-primary transition-colors"
             >
-              Features
+              Learn
             </a>
             <a
-              href="#statistics"
+              href="#community"
               className="block px-3 py-2 rounded-md text-gray-300 hover:text-primary transition-colors"
             >
-              Statistics
+              Community
             </a>
-            <a
-              href="#pricing"
-              className="block px-3 py-2 rounded-md text-gray-300 hover:text-primary transition-colors"
-            >
-              Pricing
-            </a>
-            <button className="w-full mt-4 flex items-center justify-center space-x-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
-              <Settings className="w-4 h-4" />
-              <span>Dashboard</span>
+            <button className="w-full mt-2 px-3 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+              Add unCoded
+            </button>
+            <button className="w-full mt-2 px-3 py-2 rounded-lg bg-[#1A1A1A]/80 text-white hover:bg-[#1A1A1A] border border-white/10 transition-all">
+              Dashboard
             </button>
           </div>
         </div>
