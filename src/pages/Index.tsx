@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { ArrowRight, ChartBar, Zap, Shield, BarChart3 } from "lucide-react";
 import { useEffect } from "react";
@@ -58,6 +57,76 @@ const Index = () => {
             <button className="px-6 py-3 rounded-lg glass-effect hover:bg-white/10 transition-all border border-white/10">
               Demo ansehen
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Trading Section */}
+      <section className="py-32 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#0A0A0A]" />
+        <div className="max-w-6xl mx-auto relative">
+          {/* Market Lines Background */}
+          <div className="absolute inset-0 opacity-10">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+                style={{
+                  top: `${20 * i}%`,
+                  left: 0,
+                  right: 0,
+                  transform: `rotate(${i % 2 ? 2 : -2}deg)`,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Content */}
+          <div className="text-center mb-16 animate-on-scroll">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              <span className="text-gray-200">Trade</span>{" "}
+              <span className="text-gradient">anything</span>
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-bold mb-8 text-primary">
+              on the market
+            </h3>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Trade with confidence, minimal slippage, and deep liquidity.
+            </p>
+          </div>
+
+          {/* Trading Platform Illustration */}
+          <div className="relative h-[400px] animate-on-scroll">
+            {/* Platform Base */}
+            <div className="absolute left-1/2 bottom-20 -translate-x-1/2 w-[300px] h-[100px] perspective-1000">
+              <div className="relative w-full h-full">
+                {/* Platform Top */}
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent transform -skew-x-12 rounded-lg border border-primary/20" />
+                
+                {/* Side Panels */}
+                <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-r from-primary/10 to-transparent transform -skew-x-45 origin-bottom-left" />
+                <div className="absolute bottom-0 right-0 w-full h-20 bg-gradient-to-l from-primary/10 to-transparent transform skew-x-45 origin-bottom-right" />
+              </div>
+            </div>
+
+            {/* Trading Lines */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              {/* Bitcoin Trading Line */}
+              <div className="absolute w-[200px] h-[2px] bg-primary -rotate-12 left-1/4 top-1/3">
+                <div className="absolute -left-4 -top-4 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <img src="/bitcoin-logo.svg" alt="Bitcoin" className="w-5 h-5" />
+                </div>
+                <div className="absolute w-full h-full animate-pulse-line" />
+              </div>
+
+              {/* Other Trading Line */}
+              <div className="absolute w-[200px] h-[2px] bg-[#FF6B6B] rotate-12 right-1/4 top-1/2">
+                <div className="absolute -right-4 -top-4 w-8 h-8 rounded-full bg-[#FF6B6B] flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-white" />
+                </div>
+                <div className="absolute w-full h-full animate-pulse-line" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
