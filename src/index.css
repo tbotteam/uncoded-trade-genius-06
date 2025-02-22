@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,36 +89,4 @@
 
 .pulse-ring {
   animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse-line {
-  0% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-}
-
-.animate-pulse-line {
-  animation: pulse-line 3s ease-in-out infinite;
-  background: linear-gradient(90deg, transparent, currentColor, transparent);
-}
-
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.-skew-x-45 {
-  transform: skewX(-45deg);
-}
-
-.skew-x-45 {
-  transform: skewX(45deg);
 }
