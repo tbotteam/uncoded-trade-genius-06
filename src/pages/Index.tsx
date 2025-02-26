@@ -60,9 +60,9 @@ const Index = () => {
               <span>Join Alpha Group</span>
               <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <button className="px-6 py-3 rounded-lg glass-effect hover:bg-white/10 transition-all border border-white/10">
+            {/* <button className="px-6 py-3 rounded-lg glass-effect hover:bg-white/10 transition-all border border-white/10">
               Watch Demo
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
@@ -156,7 +156,7 @@ const Index = () => {
               Ready for Alpha Signals?
             </h2>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              Join our Telegram Alpha Group now and get exclusive trading signals
+              Join our Telegram Alpha Group now and get more information about our trading bot and discover exclusive features! 🚀
             </p>
             <a 
               href="https://t.me/+uHFFhClk6IliYmNi" 
@@ -181,7 +181,7 @@ const Index = () => {
             <span className="font-bold text-gradient">unCoded</span>
           </div>
           <div className="text-sm text-gray-400">
-            © 2024 unCoded Trading Bot. All rights reserved.
+            © 2025 unCoded Trading Bot. All rights reserved.
           </div>
         </div>
       </footer>

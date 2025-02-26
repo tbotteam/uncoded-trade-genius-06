@@ -41,9 +41,9 @@ export const Navigation = () => {
             <a href="#statistics" className="text-gray-300 hover:text-primary transition-colors">
               Statistics
             </a>
-            <a href="#pricing" className="text-gray-300 hover:text-primary transition-colors">
+            {/* <a href="#pricing" className="text-gray-300 hover:text-primary transition-colors">
               Pricing
-            </a>
+            </a> */}
             <a 
               href="https://t.me/uncodedtrading" 
               target="_blank" 
