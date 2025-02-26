@@ -1,6 +1,6 @@
 
 import { Navigation } from "@/components/Navigation";
-import { ArrowRight, ChartBar, Zap, Shield } from "lucide-react";
+import { ArrowRight, ChartBar, Zap, Shield, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -51,10 +51,15 @@ const Index = () => {
           </div>
           
           <div className="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="group flex items-center space-x-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow">
-              <span>Start Now</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <a 
+              href="https://t.me/+uHFFhClk6IliYmNi" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex items-center space-x-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow"
+            >
+              <span>Join Alpha Group</span>
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
             <button className="px-6 py-3 rounded-lg glass-effect hover:bg-white/10 transition-all border border-white/10">
               Watch Demo
             </button>
@@ -148,15 +153,20 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center animate-on-scroll relative z-10">
           <div className="glass-effect p-8 rounded-2xl glow">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-              Ready for Automated Trading?
+              Ready for Alpha Signals?
             </h2>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              Start with unCoded Trading Bot now and experience the future of trading
+              Join our Telegram Alpha Group now and get exclusive trading signals
             </p>
-            <button className="group inline-flex items-center space-x-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow">
-              <span>Try for Free</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <a 
+              href="https://t.me/+uHFFhClk6IliYmNi" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group inline-flex items-center space-x-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow"
+            >
+              <span>Join Alpha Group</span>
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </section>
