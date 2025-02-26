@@ -1,6 +1,6 @@
 
 import { Navigation } from "@/components/Navigation";
-import { ArrowRight, ChartBar, Zap, Shield, BarChart3 } from "lucide-react";
+import { ArrowRight, ChartBar, Zap, Shield } from "lucide-react";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -39,24 +39,24 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="animate-on-scroll mb-6">
             <span className="inline-block px-3 py-1 rounded-full glass-effect text-primary text-sm mb-4 glow">
-              Intelligentes Trading leicht gemacht
+              Intelligent Trading Made Easy
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-stroke relative">
               <span className="text-gradient">unCoded Trading Bot</span>
               <div className="absolute -inset-1 bg-primary/20 blur-2xl opacity-50 -z-10" />
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto backdrop-blur-sm">
-              Automatisieren Sie Ihr Binance-Trading mit fortschrittlicher KI und maximieren Sie Ihre Rendite
+              Automate your Binance trading with advanced AI and maximize your returns
             </p>
           </div>
           
           <div className="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="group flex items-center space-x-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow">
-              <span>Jetzt Starten</span>
+              <span>Start Now</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="px-6 py-3 rounded-lg glass-effect hover:bg-white/10 transition-all border border-white/10">
-              Demo ansehen
+              Watch Demo
             </button>
           </div>
         </div>
@@ -68,10 +68,10 @@ const Index = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-              Warum unCoded Trading Bot?
+              Why unCoded Trading Bot?
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Entdecken Sie die Vorteile unseres fortschrittlichen Trading-Bots
+              Discover the advantages of our advanced trading bot
             </p>
           </div>
 
@@ -79,18 +79,18 @@ const Index = () => {
             {[
               {
                 icon: <ChartBar className="w-6 h-6 text-primary" />,
-                title: "Intelligente Analyse",
-                description: "Fortschrittliche Algorithmen für präzise Marktanalysen",
+                title: "Intelligent Analysis",
+                description: "Advanced algorithms for precise market analysis",
               },
               {
                 icon: <Zap className="w-6 h-6 text-primary" />,
-                title: "Schnelle Ausführung",
-                description: "Blitzschnelle Order-Ausführung für optimale Ergebnisse",
+                title: "Fast Execution",
+                description: "Lightning-fast order execution for optimal results",
               },
               {
                 icon: <Shield className="w-6 h-6 text-primary" />,
-                title: "Sicher & Zuverlässig",
-                description: "Höchste Sicherheitsstandards für Ihr Kapital",
+                title: "Safe & Reliable",
+                description: "Highest security standards for your capital",
               },
             ].map((feature, index) => (
               <div
@@ -114,17 +114,17 @@ const Index = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-              Unsere Erfolge in Zahlen
+              Our Success in Numbers
             </h2>
             <p className="text-gray-400">
-              Echte Resultate, die für sich sprechen
+              Real results that speak for themselves
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { value: "99.9%", label: "Uptime" },
-              { value: "0.1s", label: "Ausführungszeit" },
+              { value: "0.1s", label: "Execution Time" },
               { value: "24/7", label: "Support" },
               { value: "50k+", label: "Trades" },
             ].map((stat, index) => (
@@ -148,13 +148,13 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center animate-on-scroll relative z-10">
           <div className="glass-effect p-8 rounded-2xl glow">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-              Bereit für automatisiertes Trading?
+              Ready for Automated Trading?
             </h2>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              Starten Sie jetzt mit unCoded Trading Bot und erleben Sie die Zukunft des Tradings
+              Start with unCoded Trading Bot now and experience the future of trading
             </p>
             <button className="group inline-flex items-center space-x-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow">
-              <span>Kostenlos Testen</span>
+              <span>Try for Free</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -171,7 +171,7 @@ const Index = () => {
             <span className="font-bold text-gradient">unCoded</span>
           </div>
           <div className="text-sm text-gray-400">
-            © 2024 unCoded Trading Bot. Alle Rechte vorbehalten.
+            © 2024 unCoded Trading Bot. All rights reserved.
           </div>
         </div>
       </footer>
