@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, BrandTelegram } from "lucide-react";
+import { Menu, X, Telegram } from "lucide-react";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,7 @@ export const Navigation = () => {
               rel="noopener noreferrer"
               className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
             >
-              <BrandTelegram className="w-4 h-4" />
+              <Telegram className="w-4 h-4" />
               <span>Join Telegram</span>
             </a>
           </div>
@@ -94,7 +94,7 @@ export const Navigation = () => {
               className="block w-full mt-4 text-center px-3 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
             >
               <div className="flex items-center justify-center space-x-2">
-                <BrandTelegram className="w-4 h-4" />
+                <Telegram className="w-4 h-4" />
                 <span>Join Telegram</span>
               </div>
             </a>
