@@ -1,13 +1,10 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Settings } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Menu, X, BrandTelegram } from "lucide-react";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const { toast } = useToast();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,52 +13,6 @@ export const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleConnect = async () => {
-    setIsConnecting(true);
-    try {
-      // Wallet connection logic here
-      const ethereum = (window as any).ethereum;
-      if (!ethereum) {
-        toast({
-          title: "Wallet nicht gefunden",
-          description: "Bitte installieren Sie MetaMask oder ein anderes Web3-Wallet.",
-          variant: "destructive",
-        });
-        return;
-      }
-
-      await ethereum.request({ 
-        method: 'eth_requestAccounts' 
-      });
-      
-      toast({
-        title: "Erfolgreich verbunden",
-        description: "Ihre Wallet wurde erfolgreich verbunden.",
-      });
-
-    } catch (error: any) {
-      console.error('Connection error:', error);
-      
-      // Spezifische Fehlermeldung für User Rejection
-      if (error.message.includes('User rejected')) {
-        toast({
-          title: "Verbindung abgelehnt",
-          description: "Sie haben die Wallet-Verbindung abgelehnt.",
-          variant: "destructive",
-        });
-      } else {
-        // Generische Fehlermeldung für andere Fehler
-        toast({
-          title: "Verbindungsfehler",
-          description: "Es gab einen Fehler bei der Wallet-Verbindung. Bitte versuchen Sie es erneut.",
-          variant: "destructive",
-        });
-      }
-    } finally {
-      setIsConnecting(false);
-    }
-  };
 
   return (
     <nav
@@ -77,6 +28,9 @@ export const Navigation = () => {
                 <div className="w-6 h-6 rounded-full bg-primary animate-pulse" />
               </div>
               <span className="text-xl font-bold text-white">unCoded</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+                Alpha
+              </span>
             </a>
           </div>
 
@@ -90,18 +44,15 @@ export const Navigation = () => {
             <a href="#pricing" className="text-gray-300 hover:text-primary transition-colors">
               Pricing
             </a>
-            <button 
-              onClick={handleConnect}
-              disabled={isConnecting}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-                isConnecting 
-                  ? "bg-primary/50 cursor-not-allowed" 
-                  : "bg-primary/10 hover:bg-primary/20"
-              } text-primary transition-all`}
+            <a 
+              href="https://t.me/uncodedtrading" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
             >
-              <Settings className="w-4 h-4" />
-              <span>{isConnecting ? "Verbinde..." : "Wallet verbinden"}</span>
-            </button>
+              <BrandTelegram className="w-4 h-4" />
+              <span>Join Telegram</span>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -136,18 +87,17 @@ export const Navigation = () => {
             >
               Pricing
             </a>
-            <button 
-              onClick={handleConnect}
-              disabled={isConnecting}
-              className={`w-full mt-4 flex items-center justify-center space-x-2 px-4 py-2 rounded-lg ${
-                isConnecting 
-                  ? "bg-primary/50 cursor-not-allowed" 
-                  : "bg-primary/10 hover:bg-primary/20"
-              } text-primary transition-all`}
+            <a 
+              href="https://t.me/uncodedtrading" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block w-full mt-4 text-center px-3 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
             >
-              <Settings className="w-4 h-4" />
-              <span>{isConnecting ? "Verbinde..." : "Wallet verbinden"}</span>
-            </button>
+              <div className="flex items-center justify-center space-x-2">
+                <BrandTelegram className="w-4 h-4" />
+                <span>Join Telegram</span>
+              </div>
+            </a>
           </div>
         </div>
       )}
