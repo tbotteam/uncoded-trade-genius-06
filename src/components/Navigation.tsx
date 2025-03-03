@@ -45,7 +45,7 @@ export const Navigation = () => {
               Pricing
             </a> */}
             <a 
-              href="https://t.me/uncodedtrading" 
+              href="https://t.me/+ek0jAjeTq-w5ZDUy" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
@@ -87,7 +87,7 @@ export const Navigation = () => {
               Pricing
             </a>
             <a 
-              href="https://t.me/uncodedtrading" 
+              href="https://t.me/+ek0jAjeTq-w5ZDUy" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block w-full mt-4 text-center px-3 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all"
