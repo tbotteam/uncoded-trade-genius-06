@@ -52,7 +52,7 @@ const Index = () => {
           
           <div className="animate-on-scroll flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
-              href="https://t.me/+ek0jAjeTq-w5ZDUy" 
+              href="https://bit.ly/AuV-Telegram" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="group flex items-center space-x-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow"
@@ -159,7 +159,7 @@ const Index = () => {
               Join our Telegram Alpha Group now and get more information about our trading bot and discover exclusive features! 🚀
             </p>
             <a 
-              href="https://t.me/+ek0jAjeTq-w5ZDUy" 
+              href="https://bit.ly/AuV-Telegram" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group inline-flex items-center space-x-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all glow"
