@@ -31,7 +31,7 @@ const HeroSection = () => {
                                 size={16}
                                 className='mr-2 animate-spark'
                             />
-                            <span className='text-sm font-medium'>
+                            <span className='text-sm font-medium text-gradient'>
                                 Intelligent Trading Made Easy
                             </span>
                         </div>
