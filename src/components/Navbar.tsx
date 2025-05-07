@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { PiTelegramLogo } from "react-icons/pi";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -61,21 +62,39 @@ const Navbar = () => {
                                 <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                             </a>
                         </li>
+                        <li>
+                            <a
+                                href='https://uncoded-1.gitbook.io/uncoded-docs'
+                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
+                            >
+                                <span>Docs</span>
+                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
                 <div className='hidden md:block'>
                     <Button
                         variant='outline'
-                        className='border-primary/30 hover:bg-primary/10 text-primary rounded-lg font-medium'
+                        className='border-primary/30 hover:bg-primary/10 text-primary hover:text-primary rounded-lg font-medium group relative transition-colors duration-300'
                     >
                         <a
                             href='https://bit.ly/AuV-Telegram'
                             target='_blank'
                             rel='noopener noreferrer'
+                            className='relative overflow-hidden'
                         >
-                            Join Telegram
+                            <span>Join Telegram</span>
+                            <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                         </a>
+                        <PiTelegramLogo
+                            style={{
+                                height: "0.95rem",
+                                width: "0.95rem",
+                            }}
+                            className='group-hover:animate-bounce-slow'
+                        />
                     </Button>
                 </div>
 
@@ -132,11 +151,6 @@ const Navbar = () => {
                                 >
                                     Join Telegram
                                 </a>
-                            </li>
-                            <li className='pt-4'>
-                                <Button className='w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-8 py-6 text-lg font-medium'>
-                                    Get Started
-                                </Button>
                             </li>
                         </ul>
                     </nav>

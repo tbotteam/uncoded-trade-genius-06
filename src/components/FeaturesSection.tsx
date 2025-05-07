@@ -91,7 +91,7 @@ const FeaturesSection = () => {
                     <div className='inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-4'>
                         <span className='text-sm font-medium'>Features</span>
                     </div>
-                    <h2 className='text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent'>
+                    <h2 className='text-3xl md:text-5xl md:leading-tight font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent'>
                         Why <span className='text-primary'>unCoded</span>{" "}
                         Trading Bot?
                     </h2>

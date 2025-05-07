@@ -4,10 +4,10 @@
 
 @layer base {
     :root {
-        --background: 220 20% 9%;
+        --background: 240 15% 8%;
         --foreground: 60 30% 98%;
 
-        --card: 220 20% 15%;
+        --card: 240 10% 11%;
         --card-foreground: 60 30% 98%;
 
         --popover: 220 20% 12%;
@@ -101,7 +101,7 @@
             ),
             linear-gradient(
                 to bottom,
-                hsl(var(--primary) / 0.1) 1px,
+                hsl(var(--primary) / 0.12) 1px,
                 transparent 1px
             );
         background-size: 50px 50px;

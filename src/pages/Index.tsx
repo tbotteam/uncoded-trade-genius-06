@@ -1,29 +1,19 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
-// import MetricsSection from "@/components/MetricsSection";
-// import CTASection from "@/components/CTASection";
-// import Footer from "@/components/Footer";
-import { useEffect } from "react";
-import { toast } from "@/components/ui/sonner";
+import MetricsSection from "@/components/MetricsSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
-    useEffect(() => {
-        // Show a welcome toast when the page loads
-        toast.success("Welcome to DecodedBeta", {
-            description: "Experience the future of AI-powered trading",
-            duration: 5000,
-        });
-    }, []);
-
     return (
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
             <Navbar />
             <HeroSection />
             <FeaturesSection />
-            {/* <MetricsSection />
+            <MetricsSection />
             <CTASection />
-            <Footer /> */}
+            <Footer />
 
             {/* Cursor glow effect - follows the mouse with a subtle glow */}
             <div
