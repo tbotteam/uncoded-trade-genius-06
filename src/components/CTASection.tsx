@@ -51,7 +51,7 @@ const CTASection = () => {
                         </span>
                     </div>
 
-                    <h2 className='text-3xl md:text-5xl md:leading-snug font-bold mb-6 bg-gradient-to-r from-accent via-primary to-foreground bg-clip-text text-transparent'>
+                    <h2 className='text-3xl md:text-5xl md:leading-snug font-bold mb-6 text-gradient'>
                         Ready for Signals?
                     </h2>
 

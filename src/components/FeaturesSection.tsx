@@ -92,7 +92,7 @@ const FeaturesSection = () => {
                         <span className='text-sm font-medium'>Features</span>
                     </div>
                     <h2 className='text-3xl md:text-5xl md:leading-tight font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent'>
-                        Why <span className='text-primary'>unCoded</span>{" "}
+                        Why <span className='text-gradient'>unCoded</span>{" "}
                         Trading Bot?
                     </h2>
                     <p className='text-lg text-foreground/70 max-w-2xl mx-auto'>

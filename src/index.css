@@ -64,6 +64,12 @@
         );
     }
 
+    .text-gradient {
+        background: linear-gradient(135deg, #ffb800 0%, #ff8a00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
     .glass-card {
         @apply bg-card/70 backdrop-blur-sm border border-white/10;
     }

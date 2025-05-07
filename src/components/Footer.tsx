@@ -10,7 +10,7 @@ const Footer = () => {
                             <div className='w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center'>
                                 <div className='w-6 h-6 rounded-full bg-primary animate-pulse' />
                             </div>
-                            <span className='text-primary font-bold text-xl ml-1'>
+                            <span className='text-gradient font-bold text-xl ml-1'>
                                 unCoded
                             </span>
                         </Link>

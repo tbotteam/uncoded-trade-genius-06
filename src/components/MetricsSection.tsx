@@ -123,7 +123,7 @@ const MetricsSection = () => {
                     </div>
                     <h2 className='text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent'>
                         Our Success in{" "}
-                        <span className='text-primary'>Numbers</span>
+                        <span className='text-gradient'>Numbers</span>
                     </h2>
                     <p className='text-lg text-foreground/70 max-w-2xl mx-auto'>
                         Real results that speak for themselves

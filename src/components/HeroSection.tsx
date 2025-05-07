@@ -38,10 +38,10 @@ const HeroSection = () => {
 
                         <h1 className='text-4xl md:text-7xl font-bold mb-6 text-foreground glow'>
                             Intelligent Trading{" "}
-                            <span className='text-primary'>Automated</span>
+                            <span className='text-gradient'>Automated</span>
                         </h1>
 
-                        <h2 className='text-2xl md:text-3xl font-semibold mb-8 animate-fade-in animate-delay-100 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent'>
+                        <h2 className='text-2xl md:text-3xl font-semibold mb-8 text-primary'>
                             unCoded Trading Bot
                         </h2>
 
