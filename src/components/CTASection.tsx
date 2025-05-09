@@ -31,11 +31,10 @@ const CTASection = () => {
         <section ref={sectionRef} className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
                 <div
-                    className={`max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${
-                        isVisible
-                            ? "opacity-100 transform-none"
-                            : "opacity-0 translate-y-10"
-                    }`}
+                    className={`max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${isVisible
+                        ? "opacity-100 transform-none"
+                        : "opacity-0 translate-y-10"
+                        }`}
                 >
                     {/* Decorative elements */}
                     <div className='absolute -top-6 -left-6 w-12 h-12 rounded-full bg-primary/20 animate-float'></div>
@@ -62,37 +61,51 @@ const CTASection = () => {
                     </p>
 
                     <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                        <Button className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden '>
-                            <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                            <span className='relative flex items-center'>
-                                Join Telegram Group
-                                <PiTelegramLogo
-                                    style={{
-                                        height: "1.25rem",
-                                        width: "1.25rem",
-                                    }}
-                                    className='ml-2 group-hover:translate-x-1 transition-transform duration-500'
-                                />
-                            </span>
-                        </Button>
-
-                        <Button
-                            variant='outline'
-                            className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary rounded-lg px-8 py-6 text-lg font-medium group relative overflow-hidden'
+                        <a
+                            href='https://t.me/Official_unCoded'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='inline-block'
                         >
-                            <span className='absolute inset-0 w-0 bg-primary/5 transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                            <span className='relative flex items-center z-10'>
-                                <span className='relative overflow-hidden'>
-                                    View Documentation
-                                    {/* <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700'></span> */}
+                            <Button className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden '>
+                                <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
+                                <span className='relative flex items-center'>
+                                    Join Telegram Group
+                                    <PiTelegramLogo
+                                        style={{
+                                            height: "1.25rem",
+                                            width: "1.25rem",
+                                        }}
+                                        className='ml-2 group-hover:translate-x-1 transition-transform duration-500'
+                                    />
                                 </span>
-                                <ArrowRight
-                                    size={16}
-                                    className='ml-2 transition-transform group-hover:translate-x-1 duration-500'
-                                />
-                            </span>
-                        </Button>
+                            </Button>
+                        </a>
+
+                        <a
+                            href='https://uncoded-1.gitbook.io/uncoded-docs'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='inline-block'
+                        >
+                            <Button
+                                variant='outline'
+                                className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary rounded-lg px-8 py-6 text-lg font-medium group relative overflow-hidden'
+                            >
+                                <span className='absolute inset-0 w-0 bg-primary/5 transition-all duration-500 ease-in-out group-hover:w-full'></span>
+                                <span className='relative flex items-center z-10'>
+                                    <span className='relative overflow-hidden'>
+                                        View Documentation
+                                    </span>
+                                    <ArrowRight
+                                        size={16}
+                                        className='ml-2 transition-transform group-hover:translate-x-1 duration-500'
+                                    />
+                                </span>
+                            </Button>
+                        </a>
                     </div>
+
                 </div>
             </div>
 
