@@ -80,7 +80,7 @@ const Navbar = () => {
                         className='border-primary/30 hover:bg-primary/10 text-primary hover:text-primary rounded-lg font-medium group relative transition-colors duration-300'
                     >
                         <a
-                            href='https://bit.ly/AuV-Telegram'
+                            href='https://t.me/Official_unCoded'
                             target='_blank'
                             rel='noopener noreferrer'
                             className='relative overflow-hidden'
@@ -144,7 +144,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <a
-                                    href='https://bit.ly/AuV-Telegram'
+                                    href='https://t.me/Official_unCoded'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='text-foreground/80 hover:text-primary transition-colors text-xl'

@@ -59,7 +59,7 @@ const HeroSection = () => {
                                 asChild
                             >
                                 <a
-                                    href='https://bit.ly/AuV-Telegram'
+                                    href='https://t.me/Official_unCoded'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >
