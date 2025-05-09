@@ -57,18 +57,18 @@ const FeaturesSection = () => {
     const features = [
         {
             icon: <Activity size={24} className='animate-spark' />,
-            title: "Intelligent Analysis",
-            description: "Advanced algorithms for precise market analysis",
+            title: "High Frequency Trading",
+            description: "Over 1,000 trades per day – lightning-fast execution, endless opportunities.",
         },
         {
             icon: <Zap size={24} className='animate-spark' />,
-            title: "Fast Execution",
-            description: "Lightning-fast order execution for optimal results",
+            title: "Trade for free – earn up to $500",
+            description: "With unCoded, you can make up to $500 in profit with zero upfront costs. We only earn when you do.",
         },
         {
             icon: <Shield size={24} className='animate-spark' />,
-            title: "Secure & Reliable",
-            description: "Highest security standards for your capital",
+            title: "100% Control – Zero Compromise",
+            description: "No third parties, no restrictions. Your server. Your bot. Your profits.",
         },
         // {
         //     icon: <TrendingUp size={24} className='animate-bounce-slow' />,
