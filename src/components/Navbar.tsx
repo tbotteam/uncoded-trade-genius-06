@@ -37,7 +37,7 @@ const Navbar = () => {
                     {/* <div className='w-8 h-8 rounded-full bg-primary flex items-center justify-center mr-2 group-hover:animate-pulse-glow'>
                         <Sparkles className='w-4 h-4 text-primary-foreground' />
                     </div> */}
-                    <span className='ml-2 text-primary font-bold text-xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent group-hover:from-primary/80 group-hover:to-primary transition-all duration-300'>
+                    <span className='ml-2 font-bold text-xl transition-all duration-300'>
                         unCoded
                     </span>
                 </Link>
