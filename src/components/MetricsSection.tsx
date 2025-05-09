@@ -148,7 +148,7 @@ const MetricsSection = () => {
                         delay={300}
                         icon={<Zap className='w-6 h-6 text-primary' />}
                         color='bg-primary/20'
-                        endValue={100}
+                        endValue={10}
                         suffix='ms'
                     />
                     <Stat
@@ -162,14 +162,16 @@ const MetricsSection = () => {
                     />
                     <Stat
                         value='50k+'
-                        label='Trades'
+                        label='Total Trading Volume (USD)'
                         delay={700}
                         icon={
                             <ArrowUpCircle className='w-6 h-6 text-purple-400' />
                         }
                         color='bg-purple-500/20'
-                        endValue={50}
-                        suffix='k+'
+                        endValue={1450.167285}
+                        suffix='M'
+                        
+                        
                     />
                 </div>
             </div>
