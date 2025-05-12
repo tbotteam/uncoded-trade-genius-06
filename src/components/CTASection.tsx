@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Rocket, Sparkles, ArrowRight, SendHorizonal } from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
 import { useState, useEffect, useRef } from "react";
+import { TELEGRAM_LINK } from "@/constants/links";
 
 const CTASection = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -31,10 +32,11 @@ const CTASection = () => {
         <section ref={sectionRef} className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
                 <div
-                    className={`max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${isVisible
-                        ? "opacity-100 transform-none"
-                        : "opacity-0 translate-y-10"
-                        }`}
+                    className={`max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${
+                        isVisible
+                            ? "opacity-100 transform-none"
+                            : "opacity-0 translate-y-10"
+                    }`}
                 >
                     {/* Decorative elements */}
                     <div className='absolute -top-6 -left-6 w-12 h-12 rounded-full bg-primary/20 animate-float'></div>
@@ -62,7 +64,7 @@ const CTASection = () => {
 
                     <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                         <a
-                            href='https://t.me/Official_unCoded'
+                            href={TELEGRAM_LINK}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='inline-block'
@@ -105,7 +107,6 @@ const CTASection = () => {
                             </Button>
                         </a>
                     </div>
-
                 </div>
             </div>
 

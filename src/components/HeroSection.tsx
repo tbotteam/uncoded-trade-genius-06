@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { TELEGRAM_LINK } from "@/constants/links";
 import { ArrowRight, ExternalLink, Sparkles, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -59,7 +60,7 @@ const HeroSection = () => {
                                 asChild
                             >
                                 <a
-                                    href='https://t.me/Official_unCoded'
+                                    href={TELEGRAM_LINK}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >

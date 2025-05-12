@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
+import { TELEGRAM_LINK } from "@/constants/links";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
                     <ul className='flex space-x-8'>
                         <li>
                             <a
-                                href='#features'
+                                href='/#features'
                                 className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
                             >
                                 <span>Features</span>
@@ -55,10 +56,19 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href='#metrics'
+                                href='/#metrics'
                                 className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
                             >
                                 <span>Metrics</span>
+                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href='/pricing'
+                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
+                            >
+                                <span>Pricing</span>
                                 <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                             </a>
                         </li>
@@ -80,7 +90,7 @@ const Navbar = () => {
                         className='border-primary/30 hover:bg-primary/10 text-primary hover:text-primary rounded-lg font-medium group relative transition-colors duration-300'
                     >
                         <a
-                            href='https://t.me/Official_unCoded'
+                            href={TELEGRAM_LINK}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='relative overflow-hidden'
@@ -144,7 +154,16 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <a
-                                    href='https://t.me/Official_unCoded'
+                                    href='/pricing'
+                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={TELEGRAM_LINK}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='text-foreground/80 hover:text-primary transition-colors text-xl'
