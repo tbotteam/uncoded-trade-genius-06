@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
     Menu,
     X,
-    Sparkles,
     Users,
     LifeBuoy,
     HelpCircle,
@@ -17,6 +16,9 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [companyMenuOpen, setCompanyMenuOpen] = useState(false);
+    const [isCompanyMenuVisible, setIsCompanyMenuVisible] = useState(false);
+    const [companyMenuAnimationClass, setCompanyMenuAnimationClass] =
+        useState("");
     const companyMenuRef = useRef<HTMLLIElement>(null);
 
     useEffect(() => {
@@ -36,9 +38,11 @@ const Navbar = () => {
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
+                companyMenuOpen &&
                 companyMenuRef.current &&
                 !companyMenuRef.current.contains(event.target as Node)
             ) {
+                setCompanyMenuAnimationClass("animate-slide-up-fade");
                 setCompanyMenuOpen(false);
             }
         };
@@ -47,12 +51,19 @@ const Navbar = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, []);
+    }, [companyMenuOpen]);
 
     // Toggle company menu
     const toggleCompanyMenu = (e: React.MouseEvent) => {
         e.preventDefault();
-        setCompanyMenuOpen(!companyMenuOpen);
+        if (!companyMenuOpen) {
+            setIsCompanyMenuVisible(true);
+            setCompanyMenuAnimationClass("animate-slide-down-fade");
+            setCompanyMenuOpen(true);
+        } else {
+            setCompanyMenuAnimationClass("animate-slide-up-fade");
+            setCompanyMenuOpen(false);
+        }
     };
 
     return (
@@ -121,8 +132,18 @@ const Navbar = () => {
                             </button>
 
                             {/* Company dropdown menu */}
-                            {companyMenuOpen && (
-                                <div className='absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-popover/95 backdrop-blur-sm border border-primary/10 rounded-lg shadow-lg p-4 z-50 animate-fade-in'>
+                            {isCompanyMenuVisible && (
+                                <div
+                                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-popover/95 backdrop-blur-sm border border-primary/10 rounded-lg shadow-lg p-4 z-50 ${companyMenuAnimationClass}`}
+                                    onAnimationEnd={() => {
+                                        if (
+                                            companyMenuAnimationClass ===
+                                            "animate-slide-up-fade"
+                                        ) {
+                                            setIsCompanyMenuVisible(false);
+                                        }
+                                    }}
+                                >
                                     <div className='grid gap-4'>
                                         <Link
                                             to='/about'
