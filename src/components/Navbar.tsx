@@ -1,13 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import {
+    Menu,
+    X,
+    Sparkles,
+    Users,
+    LifeBuoy,
+    HelpCircle,
+    ChevronDown,
+} from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
 import { TELEGRAM_LINK } from "@/constants/links";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [companyMenuOpen, setCompanyMenuOpen] = useState(false);
+    const companyMenuRef = useRef<HTMLLIElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +31,29 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Handle click outside to close company menu
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                companyMenuRef.current &&
+                !companyMenuRef.current.contains(event.target as Node)
+            ) {
+                setCompanyMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    // Toggle company menu
+    const toggleCompanyMenu = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setCompanyMenuOpen(!companyMenuOpen);
+    };
 
     return (
         <header
@@ -71,6 +104,88 @@ const Navbar = () => {
                                 <span>Pricing</span>
                                 <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                             </a>
+                        </li>
+                        <li ref={companyMenuRef} className='relative'>
+                            <button
+                                onClick={toggleCompanyMenu}
+                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group flex items-center gap-1'
+                            >
+                                <span>Company</span>
+                                <ChevronDown
+                                    size={16}
+                                    className={`transition-transform duration-300 ${
+                                        companyMenuOpen ? "rotate-180" : ""
+                                    }`}
+                                />
+                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
+                            </button>
+
+                            {/* Company dropdown menu */}
+                            {companyMenuOpen && (
+                                <div className='absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-popover/95 backdrop-blur-sm border border-primary/10 rounded-lg shadow-lg p-4 z-50 animate-fade-in'>
+                                    <div className='grid gap-4'>
+                                        <Link
+                                            to='/about'
+                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                        >
+                                            <div className='p-2 bg-primary/10 rounded-full'>
+                                                <Users
+                                                    size={20}
+                                                    className='text-primary'
+                                                />
+                                            </div>
+                                            <div className='flex flex-col'>
+                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                    About Us
+                                                </span>
+                                                <span className='text-xs text-muted-foreground'>
+                                                    Our team and our mission
+                                                </span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to='/affiliate'
+                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                        >
+                                            <div className='p-2 bg-primary/10 rounded-full'>
+                                                <LifeBuoy
+                                                    size={20}
+                                                    className='text-primary'
+                                                />
+                                            </div>
+                                            <div className='flex flex-col'>
+                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                    Affiliate Program
+                                                </span>
+                                                <span className='text-xs text-muted-foreground'>
+                                                    Earn 10% commissions
+                                                </span>
+                                            </div>
+                                        </Link>
+                                        <a
+                                            href={TELEGRAM_LINK}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md group transition-all duration-200'
+                                        >
+                                            <div className='p-2 bg-primary/10 rounded-full'>
+                                                <HelpCircle
+                                                    size={20}
+                                                    className='text-primary'
+                                                />
+                                            </div>
+                                            <div className='flex flex-col'>
+                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                    Support
+                                                </span>
+                                                <span className='text-xs text-muted-foreground'>
+                                                    Get help via Telegram
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
                         </li>
                         <li>
                             <a
@@ -162,13 +277,31 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li>
+                                <Link
+                                    to='/about'
+                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to='/affiliate'
+                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Affiliate
+                                </Link>
+                            </li>
+                            <li>
                                 <a
                                     href={TELEGRAM_LINK}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='text-foreground/80 hover:text-primary transition-colors text-xl'
                                 >
-                                    Join Telegram
+                                    Support
                                 </a>
                             </li>
                         </ul>
