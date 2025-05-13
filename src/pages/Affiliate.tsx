@@ -24,34 +24,7 @@ const Affiliate = () => {
             ></div>
             <div className='absolute top-0 left-0 right-0 h-[40vh] grid-pattern opacity-5 z-0'></div>
 
-            {/* Reduced floating elements */}
-            <motion.div
-                className='absolute top-[20%] right-[10%] w-16 h-16 rounded-full bg-primary/5 z-0'
-                animate={{
-                    y: [0, -10, 0],
-                    opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            />
-
-            <motion.div
-                className='absolute top-[50%] left-[5%] w-20 h-20 rounded-full bg-primary/3 z-0'
-                animate={{
-                    y: [0, 15, 0],
-                    opacity: [0.2, 0.4, 0.2],
-                }}
-                transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            />
-
-            {/* Coin elements - smaller and more subtle */}
+            {/* Coin elements */}
             <motion.div
                 className='absolute top-[15%] left-[15%] w-10 h-10 rounded-full bg-primary shadow-[0_0_10px_rgba(255,184,0,0.3)] z-0'
                 initial={{ rotate: 0 }}
@@ -66,7 +39,6 @@ const Affiliate = () => {
                     $
                 </div>
             </motion.div>
-
             <motion.div
                 className='absolute bottom-[25%] left-[8%] w-8 h-8 rounded-full bg-primary shadow-[0_0_10px_rgba(255,184,0,0.3)] z-0'
                 initial={{ rotate: 0 }}
@@ -81,15 +53,14 @@ const Affiliate = () => {
                     %
                 </div>
             </motion.div>
-
             <Navbar />
-            <main className='flex-grow mt-24 relative z-10'>
+            <main className='flex-grow mt-20 relative z-10'>
                 <section className='container mx-auto px-4 py-12'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className='text-center mb-16 relative'
+                        className='text-center mb-36 relative'
                     >
                         {/* Less intense glow behind title */}
                         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-primary/10 blur-2xl'></div>
@@ -342,7 +313,6 @@ const Affiliate = () => {
                 </section>
             </main>
             <Footer />
-
             <div id='cursor-glow'></div>
         </div>
     );

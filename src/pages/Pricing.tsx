@@ -64,10 +64,14 @@ const PricingPage = () => {
 
     return (
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
+            <div
+                className='absolute inset-0 hero-gradient z-0'
+                style={{ height: "60vh" }}
+            ></div>
             <Navbar />
 
             {/* Hero section */}
-            <section className='pt-32 pb-20 relative hero-gradient overflow-hidden'>
+            <section className='pt-32 pb-20 relative'>
                 <div className='container mx-auto px-4'>
                     <motion.div
                         className='max-w-4xl mx-auto text-center'
