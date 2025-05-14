@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Pricing from "./pages/Pricing";
 import Affiliate from "./pages/Affiliate";
 import AboutUsPage from "./pages/AboutUs";
+import TermsOfService from "./pages/TermsOfService";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
                     <Route path='/pricing' element={<Pricing />} />
                     <Route path='/affiliate' element={<Affiliate />} />
                     <Route path='/about' element={<AboutUsPage />} />
+                    <Route path='/terms' element={<TermsOfService />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

@@ -8,6 +8,7 @@ import {
     LifeBuoy,
     HelpCircle,
     ChevronDown,
+    FileText,
 } from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
 import { TELEGRAM_LINK } from "@/constants/links";
@@ -180,6 +181,25 @@ const Navbar = () => {
                                                 </span>
                                                 <span className='text-xs text-muted-foreground'>
                                                     Earn 10% commissions
+                                                </span>
+                                            </div>
+                                        </Link>
+                                        <Link
+                                            to='/terms'
+                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                        >
+                                            <div className='p-2 bg-primary/10 rounded-full'>
+                                                <FileText
+                                                    size={20}
+                                                    className='text-primary'
+                                                />
+                                            </div>
+                                            <div className='flex flex-col'>
+                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                    Terms of Service
+                                                </span>
+                                                <span className='text-xs text-muted-foreground'>
+                                                    Our legal terms
                                                 </span>
                                             </div>
                                         </Link>
