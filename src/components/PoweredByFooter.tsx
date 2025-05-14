@@ -15,8 +15,8 @@ const Footer = () => {
                             </span>
                         </Link>
                     </div>
-                    <div className='mb-4 md:mb-0 text-foreground/60 text-sm'>
-                        <span className='mr-2'>
+                    <div className='flex flex-col md:flex-row items-center text-center md:text-left mb-4 md:mb-0 text-foreground/60 text-sm'>
+                        <span className='mb-2 md:mb-0 md:mr-2'>
                             Powered By{" "}
                             <a
                                 href='https://google.com'
