@@ -274,7 +274,7 @@ const Navbar = () => {
 
             {/* Mobile menu */}
             <div
-                className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-md z-40 transition-transform duration-300 ${
+                className={`md:hidden fixed inset-0 h-screen md:h-auto bg-background backdrop-blur-md z-40 transition-transform duration-300 ${
                     isOpen ? "translate-x-0" : "translate-x-full"
                 }`}
             >
@@ -333,6 +333,15 @@ const Navbar = () => {
                                     onClick={() => setIsOpen(false)}
                                 >
                                     Affiliate
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to='/terms'
+                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Terms of Service
                                 </Link>
                             </li>
                             <li>
