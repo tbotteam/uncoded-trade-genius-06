@@ -15,7 +15,21 @@ const Footer = () => {
                             </span>
                         </Link>
                     </div>
-                    <div className='mb-4 md:mb-0 text-foreground/60 text-sm'>
+                    <div className='flex flex-col md:flex-row items-center text-center md:text-left mb-4 md:mb-0 text-foreground/60 text-sm'>
+                        <span className='mb-2 md:mb-0 md:mr-2'>
+                            Powered By{" "}
+                            <a
+                                href='https://google.com'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-white font-semibold inline-flex items-center'
+                            >
+                                unCoded
+                                <span className='w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center'>
+                                    <span className='w-2.5 h-2.5 rounded-full bg-primary animate-pulse' />
+                                </span>
+                            </a>
+                        </span>
                         © 2025 unCoded. All rights reserved.
                     </div>
                 </div>

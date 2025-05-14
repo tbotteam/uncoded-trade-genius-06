@@ -1,4 +1,4 @@
-import PoweredByFooter from "@/components/PoweredByFooter";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Separator } from "@/components/ui/separator";
 
@@ -64,7 +64,7 @@ const TermsOfService = () => {
                     </div>
                 </section>
             </main>
-            <PoweredByFooter />
+            <Footer />
         </div>
     );
 };
