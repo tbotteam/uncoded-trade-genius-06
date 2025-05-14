@@ -9,17 +9,17 @@ const TermsOfService = () => {
             <main className='flex-grow container mx-auto px-4 py-8 pt-16'>
                 <section id='terms' className='py-12 md:py-16'>
                     <div className='max-w-3xl mx-auto text-center'>
-                        <h1 className='text-4xl md:text-5xl font-bold mb-4 text-primary animate-fade-in'>
+                        <h1 className='text-4xl md:text-5xl font-bold mb-4 text-primary animate-fade-in opacity-0'>
                             Terms of Service
                         </h1>
-                        <p className='text-lg text-foreground/80 mb-8 animate-fade-in animate-delay-200'>
+                        <p className='text-lg text-foreground/80 mb-8 animate-fade-in animate-delay-200 opacity-0'>
                             Last updated: {new Date().toLocaleDateString()}
                         </p>
                     </div>
 
-                    <Separator className='my-8 md:my-12 bg-primary/20 animate-fade-in animate-delay-300' />
+                    <Separator className='my-8 md:my-12 bg-primary/20 animate-fade-in animate-delay-300 opacity-0' />
 
-                    <div className='max-w-3xl mx-auto space-y-6 text-foreground/90 animate-fade-in animate-delay-400'>
+                    <div className='max-w-3xl mx-auto space-y-6 text-foreground/90 animate-fade-in animate-delay-400 opacity-0'>
                         <h2 className='text-2xl font-semibold text-primary'>
                             1. Acceptance of Terms
                         </h2>
