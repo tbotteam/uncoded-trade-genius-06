@@ -80,12 +80,12 @@ const Navbar = () => {
                         className='border-primary/30 hover:bg-primary/10 text-primary hover:text-primary rounded-lg font-medium group relative transition-colors duration-300'
                     >
                         <a
-                            href='https://t.me/Official_unCoded'
+                            href='https://t.me/unCoded_bot?start=ref_279365089'
                             target='_blank'
                             rel='noopener noreferrer'
                             className='relative overflow-hidden'
                         >
-                            <span>Join Telegram</span>
+                            <span>Start Uncoded</span>
                             <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                         </a>
                         <PiTelegramLogo
@@ -144,12 +144,12 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <a
-                                    href='https://t.me/Official_unCoded'
+                                    href='https://t.me/unCoded_bot?start=ref_279365089'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='text-foreground/80 hover:text-primary transition-colors text-xl'
                                 >
-                                    Join Telegram
+                                    Start UnCoded
                                 </a>
                             </li>
                         </ul>

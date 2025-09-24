@@ -59,13 +59,13 @@ const HeroSection = () => {
                                 asChild
                             >
                                 <a
-                                    href='https://t.me/Official_unCoded'
+                                    href='https://t.me/unCoded_bot?start=ref_279365089'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >
                                     <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                                     <span className='relative flex items-center'>
-                                        Join Telegram Group
+                                        Start UnCoded
                                         <Zap
                                             size={20}
                                             className='ml-2 animate-bounce-slow '

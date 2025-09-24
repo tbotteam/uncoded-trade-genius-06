@@ -62,7 +62,7 @@ const CTASection = () => {
 
                     <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                         <a
-                            href='https://t.me/Official_unCoded'
+                            href='https://t.me/unCoded_bot?start=ref_279365089'
                             target='_blank'
                             rel='noopener noreferrer'
                             className='inline-block'
@@ -70,7 +70,7 @@ const CTASection = () => {
                             <Button className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden '>
                                 <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
                                 <span className='relative flex items-center'>
-                                    Join Telegram Group
+                                    Start UnCoded
                                     <PiTelegramLogo
                                         style={{
                                             height: "1.25rem",
