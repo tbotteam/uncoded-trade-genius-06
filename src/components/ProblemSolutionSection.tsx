@@ -125,13 +125,13 @@ const ProblemSolutionSection = () => {
                                 <div className='absolute left-5 md:left-6 top-10 bottom-[6rem] w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/50'></div>
 
                                 <div className='space-y-10'>
-                                    {/* Step 0 */}
+                                    {/* Step 1 */}
                                     <div className='relative'>
                                         <div className='flex items-start gap-4 md:gap-6'>
                                             <div className='relative flex items-center'>
                                                 <div className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30 ring-2 md:ring-4 ring-primary/20 z-10'>
                                                     <span className='text-xl md:text-2xl font-bold text-black'>
-                                                        0
+                                                        1
                                                     </span>
                                                 </div>
                                             </div>
@@ -149,13 +149,13 @@ const ProblemSolutionSection = () => {
                                         </div>
                                     </div>
 
-                                    {/* Step 1 */}
+                                    {/* Step 2 */}
                                     <div className='relative'>
                                         <div className='flex items-start gap-4 md:gap-6'>
                                             <div className='relative flex items-center'>
                                                 <div className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30 ring-2 md:ring-4 ring-primary/20 z-10'>
                                                     <span className='text-xl md:text-2xl font-bold text-black'>
-                                                        1
+                                                        2
                                                     </span>
                                                 </div>
                                             </div>
@@ -183,13 +183,13 @@ const ProblemSolutionSection = () => {
                                         </div>
                                     </div>
 
-                                    {/* Step 2 */}
+                                    {/* Step 3 */}
                                     <div className='relative'>
                                         <div className='flex items-start gap-4 md:gap-6'>
                                             <div className='relative flex items-center'>
                                                 <div className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30 ring-2 md:ring-4 ring-primary/20 z-10'>
                                                     <span className='text-xl md:text-2xl font-bold text-black'>
-                                                        2
+                                                        3
                                                     </span>
                                                 </div>
                                             </div>
@@ -208,13 +208,13 @@ const ProblemSolutionSection = () => {
                                         </div>
                                     </div>
 
-                                    {/* Step 3 */}
+                                    {/* Step 4 */}
                                     <div className='relative'>
                                         <div className='flex items-start gap-4 md:gap-6'>
                                             <div className='relative flex items-center'>
                                                 <div className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30 ring-2 md:ring-4 ring-primary/20 z-10'>
                                                     <span className='text-xl md:text-2xl font-bold text-black'>
-                                                        3
+                                                        4
                                                     </span>
                                                 </div>
                                             </div>
