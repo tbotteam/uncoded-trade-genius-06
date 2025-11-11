@@ -1,6 +1,15 @@
-import { Shield, Zap, Activity, TrendingUp, CircleDot } from "lucide-react";
+import {
+    Shield,
+    Zap,
+    Activity,
+    TrendingUp,
+    CircleDot,
+    Puzzle,
+} from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FEATURES_PAGE_LINK } from "@/constants/links";
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -57,51 +66,49 @@ const FeaturesSection = () => {
     const features = [
         {
             icon: <Activity size={24} className='animate-spark' />,
-            title: "High Frequency Trading",
-            description: "Over 1,000 trades per day – lightning-fast execution, endless opportunities.",
-        },
-        {
-            icon: <Zap size={24} className='animate-spark' />,
-            title: "Trade for free – earn up to $500",
-            description: "With unCoded, you can make up to $500 in profit with zero upfront costs. We only earn when you do.",
+            title: "Smart Micro-Trading Engine",
+            description:
+                "captures even the smallest market movements with thousands of trades per day, optimizing entries and exits automatically.",
         },
         {
             icon: <Shield size={24} className='animate-spark' />,
-            title: "100% Control – Zero Compromise",
-            description: "No third parties, no restrictions. Your server. Your bot. Your profits.",
+            title: "Individual Risk Management",
+            description:
+                "full control through flexible risk settings: define stop-loss levels, position sizes, and a smart rebuy function that allows the bot to react intelligently to falling prices — instead of buying blindly into a downtrend.",
         },
-        // {
-        //     icon: <TrendingUp size={24} className='animate-bounce-slow' />,
-        //     title: "Profit Optimization",
-        //     description:
-        //         "Automatically adjusts strategies to maximize your trading returns",
-        // },
-        // {
-        //     icon: <CircleDot size={24} className='animate-pulse' />,
-        //     title: "24/7 Monitoring",
-        //     description:
-        //         "Continuous market observation and instant reaction to opportunities",
-        // },
+        {
+            icon: <Zap size={24} className='animate-spark' />,
+            title: "Simple No-Code Setup",
+            description:
+                "start within minutes using proven default settings and adjust anytime to fit your strategy.",
+        },
+        {
+            icon: <TrendingUp size={24} className='animate-bounce-slow' />,
+            title: "Transparent Reporting",
+            description:
+                "see every trade, live profit & loss, and detailed performance analytics in real time.",
+        },
+        {
+            icon: <CircleDot size={24} className='animate-pulse' />,
+            title: "Fair Profit-Sharing Model",
+            description:
+                "ArrowTrade AG earns only 30 % of your actual profits — no fixed fees, no subscriptions.",
+        },
     ];
 
     return (
         <section id='features' className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
-                <div className='text-center mb-16 animate-fade-in'>
-                    <div className='inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-4'>
-                        <span className='text-sm font-medium'>Features</span>
+                <div className='text-center mb-12'>
+                    <div className='flex items-center justify-center mb-4 gap-2'>
+                        <Puzzle size={40} className='text-primary my-0' />
+                        <h2 className='text-3xl md:text-5xl font-bold text-gradient'>
+                            Key Features
+                        </h2>
                     </div>
-                    <h2 className='text-3xl md:text-5xl md:leading-tight font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent'>
-                        Why <span className='text-gradient'>unCoded</span>{" "}
-                        Trading Bot?
-                    </h2>
-                    <p className='text-lg text-foreground/70 max-w-2xl mx-auto'>
-                        Automate your Binance trading with advanced AI and
-                        maximize your returns
-                    </p>
                 </div>
 
-                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in animate-delay-200'>
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in animate-delay-200 mb-12'>
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
@@ -111,6 +118,16 @@ const FeaturesSection = () => {
                             index={index}
                         />
                     ))}
+                </div>
+
+                <div className='text-center'>
+                    <Button
+                        variant='outline'
+                        className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary px-10 py-6 text-lg font-semibold rounded-xl'
+                        asChild
+                    >
+                        <a href={FEATURES_PAGE_LINK}>Explore All Features</a>
+                    </Button>
                 </div>
             </div>
 
