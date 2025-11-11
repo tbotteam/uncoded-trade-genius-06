@@ -1,8 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TRUSTPILOT_LINK } from "@/constants/links";
-import { Star, MessageCircle, ExternalLink } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import StarRating from "./StarRating";
+import testimonialsData from "@/data/testimonials.json";
 
 interface TestimonialProps {
     rating: number;
@@ -46,13 +48,8 @@ const Testimonial = ({ rating, text, author, delay }: TestimonialProps) => {
             style={{ animationDelay: `${delay}ms` }}
         >
             <CardContent className='p-6'>
-                <div className='flex gap-1 mb-3'>
-                    {[...Array(rating)].map((_, i) => (
-                        <Star
-                            key={i}
-                            className='w-5 h-5 fill-primary text-primary'
-                        />
-                    ))}
+                <div className='mb-3'>
+                    <StarRating rating={rating} color='text-primary' />
                 </div>
                 <p className='text-foreground/80 mb-4 italic leading-relaxed'>
                     "{text}"
@@ -66,19 +63,6 @@ const Testimonial = ({ rating, text, author, delay }: TestimonialProps) => {
 };
 
 const TestimonialsSection = () => {
-    const testimonials = [
-        {
-            rating: 5,
-            text: "I was skeptical at first — but the bot has been running stable and profitable for months.",
-            author: "Manuel K., Trustpilot",
-        },
-        {
-            rating: 5,
-            text: "It buys dips, sells spikes — exactly what I wanted.",
-            author: "Lukas M., Trustpilot",
-        },
-    ];
-
     return (
         <section className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
@@ -98,7 +82,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 <div className='grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8'>
-                    {testimonials.map((testimonial, index) => (
+                    {testimonialsData.testimonials.map((testimonial, index) => (
                         <Testimonial
                             key={index}
                             {...testimonial}
@@ -110,28 +94,13 @@ const TestimonialsSection = () => {
                 <div className='text-center'>
                     <div className='inline-flex flex-col items-center gap-4'>
                         <div className='flex flex-col sm:flex-row items-center gap-2 sm:gap-3'>
-                            <div className='flex gap-0.5 sm:gap-1'>
-                                {[...Array(4)].map((_, i) => (
-                                    <Star
-                                        key={i}
-                                        className='w-5 h-5 sm:w-6 sm:h-6 fill-[#00B67A] text-[#00B67A]'
-                                    />
-                                ))}
-                                {/* 80% filled last star */}
-                                <div className='relative w-5 h-5 sm:w-6 sm:h-6'>
-                                    <Star 
-                                        className='w-5 h-5 sm:w-6 sm:h-6 text-[#00B67A]' 
-                                        fill="none"
-                                        strokeWidth={1.5}
-                                    />
-                                    <Star 
-                                        className='w-5 h-5 sm:w-6 sm:h-6 fill-[#00B67A] text-[#00B67A] absolute inset-0' 
-                                        style={{ clipPath: 'inset(0 45% 0 0)' }}
-                                    />
-                                </div>
-                            </div>
+                            <StarRating
+                                rating={testimonialsData.overallRating}
+                                starClassName='w-5 h-5 sm:w-6 sm:h-6'
+                                color='text-[#00B67A]'
+                            />
                             <span className='text-lg sm:text-2xl font-bold text-foreground flex items-center gap-1.5 sm:gap-2'>
-                                4.8/5 Rated on{" "}
+                                {testimonialsData.overallRating}/5 Rated on{" "}
                                 <img
                                     src='https://cdn.brandfetch.io/idjtYmGVfB/idMNTkMPlG.svg?c=1dxbfHSJFAPEGdCLU4o5B'
                                     alt='Trustpilot'
