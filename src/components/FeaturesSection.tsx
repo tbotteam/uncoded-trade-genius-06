@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FEATURES_PAGE_LINK } from "@/constants/links";
+import { DOCS_LINK } from "@/constants/links";
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -76,12 +76,12 @@ const FeaturesSection = () => {
             description:
                 "full control through flexible risk settings: define stop-loss levels, position sizes, and a smart rebuy function that allows the bot to react intelligently to falling prices — instead of buying blindly into a downtrend.",
         },
-        {
-            icon: <Zap size={24} className='animate-spark' />,
-            title: "Simple No-Code Setup",
-            description:
-                "start within minutes using proven default settings and adjust anytime to fit your strategy.",
-        },
+        // {
+        //     icon: <Zap size={24} className='animate-spark' />,
+        //     title: "Simple No-Code Setup",
+        //     description:
+        //         "start within minutes using proven default settings and adjust anytime to fit your strategy.",
+        // },
         {
             icon: <TrendingUp size={24} className='animate-bounce-slow' />,
             title: "Transparent Reporting",
@@ -108,7 +108,7 @@ const FeaturesSection = () => {
                     </div>
                 </div>
 
-                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in animate-delay-200 mb-12'>
+                <div className='grid md:grid-cols-2 gap-8 lg:gap-16 animate-fade-in animate-delay-200 mb-12'>
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
@@ -126,7 +126,7 @@ const FeaturesSection = () => {
                         className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary px-10 py-6 text-lg font-semibold rounded-xl'
                         asChild
                     >
-                        <a href={FEATURES_PAGE_LINK}>Explore All Features</a>
+                        <a href={DOCS_LINK}>Explore All Features</a>
                     </Button>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { UNCODED_BOT_LINK } from "@/constants/links";
+import { START_BOT_CTA_LINK } from "@/constants/links";
 import {
     Lightbulb,
     Settings,
@@ -61,30 +61,20 @@ const ProblemSolutionSection = () => {
                     </div>
 
                     <Card
-                        className={`glass-card max-w-3xl mx-auto border border-orange-500/20 transition-all duration-1000 ${
+                        className={`glass-card max-w-3xl mx-auto border border-primary/20 transition-all duration-1000 ${
                             isVisible
                                 ? "opacity-100 transform-none"
                                 : "opacity-0 translate-y-10"
                         }`}
                     >
                         <CardContent className='p-8'>
-                            <div className='prose prose-invert max-w-none'>
-                                <p className='text-lg text-foreground/80 italic leading-relaxed'>
-                                    "I kept missing opportunities whenever the
-                                    market moved fast. I hesitated when prices
-                                    dropped. And I wasted hours staring at
-                                    charts, trying to predict the next move."
-                                </p>
-                                <p className='text-base text-foreground/70 mt-4'>
-                                    That's exactly why I started using{" "}
-                                    <span className='text-primary font-semibold'>
-                                        unCoded
-                                    </span>{" "}
-                                    — it takes all of that off my plate and lets
-                                    me profit from every market condition
-                                    automatically.
-                                </p>
-                            </div>
+                            <blockquote className='prose prose-invert max-w-none border-l-4 border-primary pl-6 italic text-lg text-foreground/80 leading-relaxed'>
+                                <span>
+                                    "I kept missing opportunities whenever the market moved fast. I hesitated when prices dropped. And I wasted hours staring at charts, trying to predict the next move. That's exactly why I started using
+                                    <span className='text-primary font-semibold'> unCoded</span>
+                                    — it takes all of that off my plate and lets me profit from every market condition automatically."
+                                </span>
+                            </blockquote>
                         </CardContent>
                     </Card>
                 </div>
@@ -121,8 +111,8 @@ const ProblemSolutionSection = () => {
                             <div className='w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-10'></div>
 
                             <div className='relative'>
-                                {/* Continuous vertical line - stops before last step */}
-                                <div className='absolute left-5 md:left-6 top-10 bottom-[6rem] w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/50'></div>
+                                {/* Continuous vertical line - stretches to the bottom */}
+                                <div className='absolute left-5 md:left-6 top-10 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/50'></div>
 
                                 <div className='space-y-10'>
                                     {/* Step 1 */}
@@ -266,9 +256,7 @@ const ProblemSolutionSection = () => {
                                     asChild
                                 >
                                     <a
-                                        href={UNCODED_BOT_LINK}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
+                                        href={START_BOT_CTA_LINK}
                                     >
                                         <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                                         <span className='relative flex items-center justify-center'>

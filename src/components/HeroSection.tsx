@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { UNCODED_BOT_LINK } from "@/constants/links";
+import { START_BOT_CTA_LINK } from "@/constants/links";
 import { DollarSign, Gift, Shield, TrendingUp, Users, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -108,9 +108,7 @@ const HeroSection = () => {
                                 asChild
                             >
                                 <a
-                                    href={UNCODED_BOT_LINK}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
+                                    href={START_BOT_CTA_LINK}
                                 >
                                     <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                                     <span className='relative flex items-center justify-center'>

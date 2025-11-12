@@ -62,7 +62,7 @@ const FAQSection = () => {
                         ))}
                     </Accordion>
 
-                    <div className='text-center mt-12'>
+                    {/* <div className='text-center mt-12'>
                         <Button
                             variant='outline'
                             className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary group px-10 py-6 text-lg font-semibold rounded-xl'
@@ -75,7 +75,7 @@ const FAQSection = () => {
                                 </span>
                             </a>
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Rocket, Gift, BookOpen, Phone, TrendingUp } from "lucide-react";
+import { Rocket, Gift, BookOpen, Phone } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import {
     UNCODED_BOT_LINK,
     CALENDLY_LINK,
-    GITBOOK_LINK,
+    DOCS_LINK,
 } from "@/constants/links";
 
 const CTASection = () => {
@@ -104,7 +104,7 @@ const CTASection = () => {
                                 asChild
                             >
                                 <a
-                                    href={GITBOOK_LINK}
+                                    href={DOCS_LINK}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >
