@@ -12,7 +12,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { AFFILIATE_PAGE_LINKS } from "@/constants/links";
+import { AFFILIATE_PAGE_LINKS, UNCODED_BOT_LINK } from "@/constants/links";
 
 const Affiliate = () => {
     return (
@@ -72,7 +72,7 @@ const Affiliate = () => {
                             Earn 10% commission on every top-up your referrals
                             make. It's simple, transparent, and profitable.
                         </p>
-                        <div className='flex flex-wrap justify-center gap-4'>
+                        {/* <div className='flex flex-wrap justify-center gap-4'>
                             <Button
                                 asChild
                                 className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-6 py-5 text-base font-medium relative group overflow-hidden'
@@ -106,7 +106,7 @@ const Affiliate = () => {
                                     </span>
                                 </Link>
                             </Button>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 relative'>
@@ -269,7 +269,7 @@ const Affiliate = () => {
                                     >
                                         <Link
                                             to={
-                                                AFFILIATE_PAGE_LINKS.START_REFERRING
+                                                UNCODED_BOT_LINK
                                             }
                                         >
                                             Start Referring Now

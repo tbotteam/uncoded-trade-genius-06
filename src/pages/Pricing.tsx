@@ -28,7 +28,7 @@ import {
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PiTelegramLogo } from "react-icons/pi";
-import { TELEGRAM_LINK } from "@/constants/links";
+import { PRICING_PAGE_LINKS, TELEGRAM_LINK, UNCODED_BOT_LINK } from "@/constants/links";
 
 const PricingPage = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -242,7 +242,7 @@ const PricingPage = () => {
 
                             <div className='pt-4 flex flex-col items-center md:items-start text-center md:text-left'>
                                 <Link
-                                    to='https://uncoded-1.gitbook.io/uncoded-docs/getting-started/installation-and-setup'
+                                    to={PRICING_PAGE_LINKS.LEARN_MORE}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='inline-block'
@@ -257,7 +257,7 @@ const PricingPage = () => {
                                     <Info className='w-4 h-4 mr-2' />
                                     <span>Don't have a Binance account? </span>
                                     <a
-                                        href='https://uncoded-1.gitbook.io/uncoded-docs/getting-started/creating-your-binance-account'
+                                        href={PRICING_PAGE_LINKS.CREATE_BINANCE_ACCOUNT}
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         className='text-primary ml-1 inline-flex items-center hover:underline'
@@ -800,7 +800,7 @@ const PricingPage = () => {
                             className='flex flex-col sm:flex-row gap-4 justify-center'
                         >
                             <a
-                                href={TELEGRAM_LINK}
+                                href={UNCODED_BOT_LINK}
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 className='inline-block'
@@ -808,7 +808,7 @@ const PricingPage = () => {
                                 <Button className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden '>
                                     <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
                                     <span className='relative flex items-center'>
-                                        Join Telegram Group
+Start your Trading Bot
                                         <PiTelegramLogo
                                             style={{
                                                 height: "1.25rem",

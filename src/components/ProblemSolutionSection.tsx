@@ -260,7 +260,7 @@ const ProblemSolutionSection = () => {
                                     >
                                         <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                                         <span className='relative flex items-center justify-center'>
-                                            Start Your Trading Bot Now
+                                            Start with Your Free Test License
                                             <Zap
                                                 size={20}
                                                 className='ml-2 animate-bounce-slow'

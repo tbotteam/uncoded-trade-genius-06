@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { TRUSTPILOT_LINK } from "@/constants/links";
+import { BINANCE_PAY_LINK, BTC_ECHO_LINK, TRUSTPILOT_LINK } from "@/constants/links";
 import { Star, ExternalLink } from "lucide-react";
 
 const Footer = () => {
@@ -47,12 +47,22 @@ const Footer = () => {
                                     <Star className='w-3 h-3 fill-primary text-primary' />
                                     Trustpilot
                                 </a>
-                                <span className='inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-xs text-foreground/80'>
+                                <a
+                                    href={BINANCE_PAY_LINK}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-xs text-foreground/80 hover:bg-primary/20 hover:text-primary transition-all group'
+                                >
                                     Binance Pay
-                                </span>
-                                <span className='inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-xs text-foreground/80'>
+                                </a>
+                                <a
+                                    href={BTC_ECHO_LINK}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-xs text-foreground/80 hover:bg-primary/20 hover:text-primary transition-all group'
+                                >
                                     BTC-Echo Feature
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>

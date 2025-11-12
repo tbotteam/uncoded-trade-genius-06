@@ -230,12 +230,10 @@ const CommunitySection = () => {
                                         className='w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-6 text-base font-medium animate-pulse-glow relative overflow-hidden group'
                                         asChild
                                     >
-                                        <a
-                                            href={START_BOT_CTA_LINK}
-                                        >
+                                        <a href={START_BOT_CTA_LINK}>
                                             <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary/60 opacity-0 group-hover:opacity-100 transition-opacity'></span>
                                             <span className='relative flex items-center justify-center'>
-                                                Start Your Trading Bot Now!
+                                                Try Real Trades for Free
                                                 <Rocket
                                                     size={18}
                                                     className='ml-2 group-hover:translate-x-1 transition-transform'
@@ -255,7 +253,7 @@ const CommunitySection = () => {
                                             rel='noopener noreferrer'
                                         >
                                             <span className='flex items-center justify-center'>
-                                                Join Our Community 
+                                                Join Our Community
                                                 <PiTelegramLogo
                                                     style={{
                                                         height: "1.25rem",
