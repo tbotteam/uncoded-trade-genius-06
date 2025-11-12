@@ -11,7 +11,7 @@ import {
     FileText,
 } from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
-import { TELEGRAM_LINK } from "@/constants/links";
+import { TELEGRAM_LINK, NAV_LINKS } from "@/constants/links";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +21,17 @@ const Navbar = () => {
     const [companyMenuAnimationClass, setCompanyMenuAnimationClass] =
         useState("");
     const companyMenuRef = useRef<HTMLLIElement>(null);
+
+    // Icon mapping helper
+    const getIcon = (iconName: string) => {
+        const icons: Record<string, React.ReactNode> = {
+            Users: <Users size={20} className="text-primary" />,
+            LifeBuoy: <LifeBuoy size={20} className="text-primary" />,
+            FileText: <FileText size={20} className="text-primary" />,
+            HelpCircle: <HelpCircle size={20} className="text-primary" />,
+        };
+        return icons[iconName];
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -90,39 +101,23 @@ const Navbar = () => {
 
                 <nav className='hidden md:block'>
                     <ul className='flex space-x-8'>
-                        <li>
-                            <a
-                                href='/#features'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Features</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href='/#metrics'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Metrics</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href='/pricing'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Pricing</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
-                        </li>
+                        {NAV_LINKS.main.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
+                                >
+                                    <span>{link.label}</span>
+                                    <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
+                                </a>
+                            </li>
+                        ))}
                         <li ref={companyMenuRef} className='relative'>
                             <button
                                 onClick={toggleCompanyMenu}
                                 className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group flex items-center gap-1'
                             >
-                                <span>Company</span>
+                                <span>{NAV_LINKS.company.label}</span>
                                 <ChevronDown
                                     size={16}
                                     className={`transition-transform duration-300 ${
@@ -146,96 +141,50 @@ const Navbar = () => {
                                     }}
                                 >
                                     <div className='grid gap-4'>
-                                        <Link
-                                            to='/about'
-                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
-                                        >
-                                            <div className='p-2 bg-primary/10 rounded-full'>
-                                                <Users
-                                                    size={20}
-                                                    className='text-primary'
-                                                />
-                                            </div>
-                                            <div className='flex flex-col'>
-                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
-                                                    About Us
-                                                </span>
-                                                <span className='text-xs text-muted-foreground'>
-                                                    Our team and our mission
-                                                </span>
-                                            </div>
-                                        </Link>
-                                        <Link
-                                            to='/affiliate'
-                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
-                                        >
-                                            <div className='p-2 bg-primary/10 rounded-full'>
-                                                <LifeBuoy
-                                                    size={20}
-                                                    className='text-primary'
-                                                />
-                                            </div>
-                                            <div className='flex flex-col'>
-                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
-                                                    Affiliate Program
-                                                </span>
-                                                <span className='text-xs text-muted-foreground'>
-                                                    Earn 10% commissions
-                                                </span>
-                                            </div>
-                                        </Link>
-                                        <Link
-                                            to='/terms'
-                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
-                                        >
-                                            <div className='p-2 bg-primary/10 rounded-full'>
-                                                <FileText
-                                                    size={20}
-                                                    className='text-primary'
-                                                />
-                                            </div>
-                                            <div className='flex flex-col'>
-                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
-                                                    Terms of Service
-                                                </span>
-                                                <span className='text-xs text-muted-foreground'>
-                                                    Our legal terms
-                                                </span>
-                                            </div>
-                                        </Link>
-                                        <a
-                                            href={TELEGRAM_LINK}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md group transition-all duration-200'
-                                        >
-                                            <div className='p-2 bg-primary/10 rounded-full'>
-                                                <HelpCircle
-                                                    size={20}
-                                                    className='text-primary'
-                                                />
-                                            </div>
-                                            <div className='flex flex-col'>
-                                                <span className='font-medium group-hover:text-primary transition-all duration-200'>
-                                                    Support
-                                                </span>
-                                                <span className='text-xs text-muted-foreground'>
-                                                    Get help via Telegram
-                                                </span>
-                                            </div>
-                                        </a>
+                                        {NAV_LINKS.company.items.map((item) => (
+                                            item.external ? (
+                                                <a
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                    className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                                >
+                                                    <div className='p-2 bg-primary/10 rounded-full'>
+                                                        {getIcon(item.icon)}
+                                                    </div>
+                                                    <div className='flex flex-col'>
+                                                        <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                            {item.label}
+                                                        </span>
+                                                        <span className='text-xs text-muted-foreground'>
+                                                            {item.description}
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            ) : (
+                                                <Link
+                                                    key={item.href}
+                                                    to={item.href}
+                                                    className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                                >
+                                                    <div className='p-2 bg-primary/10 rounded-full'>
+                                                        {getIcon(item.icon)}
+                                                    </div>
+                                                    <div className='flex flex-col'>
+                                                        <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                            {item.label}
+                                                        </span>
+                                                        <span className='text-xs text-muted-foreground'>
+                                                            {item.description}
+                                                        </span>
+                                                    </div>
+                                                </Link>
+                                            )
+                                        ))}
                                     </div>
                                 </div>
                             )}
-                        </li>
-                        <li>
-                            <a
-                                href='https://uncoded-1.gitbook.io/uncoded-docs'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Docs</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -251,7 +200,7 @@ const Navbar = () => {
                             rel='noopener noreferrer'
                             className='relative overflow-hidden'
                         >
-                            <span>Join Telegram</span>
+                            <span>Join Community</span>
                             <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                         </a>
                         <PiTelegramLogo
@@ -290,70 +239,40 @@ const Navbar = () => {
 
                     <nav>
                         <ul className='flex flex-col space-y-6 items-center'>
-                            <li>
-                                <a
-                                    href='#features'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Features
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href='#metrics'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Metrics
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href='/pricing'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Pricing
-                                </a>
-                            </li>
-                            <li>
-                                <Link
-                                    to='/about'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    About Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to='/affiliate'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Affiliate
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to='/terms'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Terms of Service
-                                </Link>
-                            </li>
-                            <li>
-                                <a
-                                    href={TELEGRAM_LINK}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                >
-                                    Support
-                                </a>
-                            </li>
+                            {NAV_LINKS.main.map((link) => (
+                                <li key={link.href}>
+                                    <a
+                                        href={link.href}
+                                        className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                            {NAV_LINKS.company.items.map((item) => (
+                                <li key={item.href}>
+                                    {item.external ? (
+                                        <a
+                                            href={item.href}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to={item.href}
+                                            className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>
