@@ -17,7 +17,13 @@ export interface BlogPost {
     title: string;
     body: any; // Rich text document from Contentful
     image?: Asset;
-    recommendedPosts?: any[];
+    recommendedPosts?: Array<{
+      sys: {
+        id: string;
+        type: string;
+        linkType: string;
+      };
+    }>;
   };
 }
 

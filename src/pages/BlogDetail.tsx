@@ -1,11 +1,13 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useContentfulBlog } from '@/hooks/useContentfulBlogs';
-import { generateSlug } from '@/lib/contentful';
+import { useContentfulBlog, useRecommendedPosts } from '@/hooks/useContentfulBlogs';
+import { generateSlug, extractExcerpt } from '@/lib/contentful';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Calendar, ArrowLeft, Clock } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
@@ -63,6 +65,9 @@ const richTextOptions = {
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: blog, isLoading, error } = useContentfulBlog(slug || '');
+  
+  const recommendedPostIds = blog?.fields.recommendedPosts?.map(post => post.sys.id) || [];
+  const { data: recommendedPosts } = useRecommendedPosts(recommendedPostIds);
 
   if (!slug) {
     return <Navigate to='/blogs' replace />;
@@ -85,10 +90,77 @@ const BlogDetail = () => {
     traverse(body);
     return Math.max(1, Math.ceil(wordCount / 200));
   };
+  
+  // Helper to get image URL safely
+  const getImageUrl = (url: string | undefined): string => {
+    if (!url) return "https://uncoded.ch/og-image.png";
+    return url.startsWith('//') ? `https:${url}` : url;
+  };
+  
+  // SEO data
+  const pageTitle = blog ? `${blog.fields.title} - unCoded Blog` : "Blog Post - unCoded";
+  const pageDescription = blog ? extractExcerpt(blog.fields.body, 160) : "Read the latest insights from unCoded";
+  const pageUrl = `https://uncoded.ch/blogs/${slug}`;
+  const imageUrl = getImageUrl(blog?.fields.image?.fields.file.url as string | undefined);
+  const readingTime = blog ? calculateReadingTime(blog.fields.body) : 1;
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5'>
-      <Navbar />
+    <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={imageUrl} />
+        {blog && <meta property="article:published_time" content={blog.sys.createdAt} />}
+        {blog && <meta property="article:modified_time" content={blog.sys.updatedAt} />}
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        
+        {/* JSON-LD Structured Data */}
+        {blog && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": blog.fields.title,
+              "description": pageDescription,
+              "image": imageUrl,
+              "datePublished": blog.sys.createdAt,
+              "dateModified": blog.sys.updatedAt,
+              "author": {
+                "@type": "Organization",
+                "name": "unCoded Team"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "unCoded",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://uncoded.ch/logos/logo-complete.png"
+                }
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": pageUrl
+              },
+              "timeRequired": `PT${readingTime}M`
+            })}
+          </script>
+        )}
+      </Helmet>
+      
+      <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5'>
+        <Navbar />
       
       <article className='pt-32 pb-16 px-4'>
         <div className='container mx-auto max-w-4xl'>
@@ -166,12 +238,9 @@ const BlogDetail = () => {
               {blog.fields.image?.fields.file.url && (
                 <div className='relative w-full h-[400px] rounded-xl overflow-hidden border border-primary/10'>
                   <img
-                    src={
-                      blog.fields.image.fields.file.url.startsWith('//')
-                        ? `https:${blog.fields.image.fields.file.url}`
-                        : blog.fields.image.fields.file.url
-                    }
-                    alt={blog.fields.title}
+                    src={imageUrl}
+                    alt={(blog.fields.image.fields.title as string) || blog.fields.title}
+                    loading="eager"
                     className='w-full h-full object-cover'
                   />
                 </div>
@@ -195,12 +264,60 @@ const BlogDetail = () => {
               )}
 
               {/* Recommended Posts */}
-              {blog.fields.recommendedPosts && blog.fields.recommendedPosts.length > 0 && (
+              {recommendedPosts && recommendedPosts.length > 0 && (
                 <div className='pt-8 border-t border-primary/10'>
-                  <h3 className='text-2xl font-bold mb-4'>Recommended Reading</h3>
-                  <p className='text-muted-foreground text-sm'>
-                    This post has {blog.fields.recommendedPosts.length} recommended article(s).
-                  </p>
+                  <h3 className='text-2xl font-bold mb-6'>Recommended Reading</h3>
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    {recommendedPosts.map((recommendedPost) => {
+                      const recSlug = generateSlug(recommendedPost.fields.title);
+                      const recImageUrl = recommendedPost.fields.image?.fields.file.url;
+                      
+                      return (
+                        <Link
+                          key={recommendedPost.sys.id}
+                          to={`/blogs/${recSlug}`}
+                          className='group'
+                        >
+                          <Card className='border-primary/10 hover:border-primary/30 transition-all duration-300 overflow-hidden h-full flex flex-col hover:shadow-xl hover:shadow-primary/5'>
+                            {recImageUrl && (
+                              <div className='relative h-40 overflow-hidden bg-primary/5'>
+                                <img
+                                  src={getImageUrl(recImageUrl as string | undefined)}
+                                  alt={(recommendedPost.fields.image?.fields.title as string) || recommendedPost.fields.title}
+                                  loading="lazy"
+                                  className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                                />
+                              </div>
+                            )}
+                            
+                            <CardHeader className='flex-grow pb-3'>
+                              <CardTitle className='text-lg mb-2 group-hover:text-primary transition-colors line-clamp-2'>
+                                {recommendedPost.fields.title}
+                              </CardTitle>
+                              <p className='text-sm text-muted-foreground line-clamp-2'>
+                                {extractExcerpt(recommendedPost.fields.body, 100)}
+                              </p>
+                            </CardHeader>
+                            
+                            <CardContent className='pt-0 mt-auto'>
+                              <div className='flex items-center justify-between text-xs text-muted-foreground border-t border-primary/10 pt-3'>
+                                <div className='flex items-center gap-1'>
+                                  <Calendar size={12} />
+                                  <span>
+                                    {format(new Date(recommendedPost.sys.createdAt), 'MMM dd, yyyy')}
+                                  </span>
+                                </div>
+                                <div className='flex items-center gap-1 text-primary group-hover:gap-2 transition-all'>
+                                  <span className='font-medium'>Read</span>
+                                  <ArrowRight size={12} className='group-hover:translate-x-1 transition-transform' />
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
 
@@ -222,8 +339,9 @@ const BlogDetail = () => {
         </div>
       </article>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

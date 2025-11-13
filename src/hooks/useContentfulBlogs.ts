@@ -45,3 +45,21 @@ export const useContentfulBlog = (idOrSlug: string) => {
         staleTime: 1000 * 60 * 5, // 5 minutes
     });
 };
+
+export const useRecommendedPosts = (postIds: string[]) => {
+    return useQuery({
+        queryKey: ["recommendedPosts", ...postIds],
+        queryFn: async () => {
+            if (postIds.length === 0) return [];
+            
+            const promises = postIds.map(id => 
+                contentfulClient.getEntry(id).catch(() => null)
+            );
+            
+            const results = await Promise.all(promises);
+            return results.filter(Boolean) as unknown as BlogPost[];
+        },
+        enabled: postIds.length > 0,
+        staleTime: 1000 * 60 * 5, // 5 minutes
+    });
+};

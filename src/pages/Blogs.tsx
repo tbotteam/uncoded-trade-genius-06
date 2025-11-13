@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useContentfulBlogs } from '@/hooks/useContentfulBlogs';
@@ -13,10 +14,61 @@ const Blogs = () => {
 
   const featuredBlog = blogs?.[0];
   const otherBlogs = blogs?.slice(1) || [];
+  
+  const pageTitle = "Blog - unCoded | Crypto Trading Insights & Updates";
+  const pageDescription = "Read the latest insights, updates, and stories about automated crypto trading, Binance bots, and trading strategies from the unCoded team.";
+  const pageUrl = "https://uncoded.ch/blogs";
+  
+  // Helper to get image URL safely
+  const getImageUrl = (imageUrl: string | undefined): string => {
+    if (!imageUrl) return "https://uncoded.ch/og-image.png";
+    return imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl;
+  };
+  
+  const ogImage = getImageUrl(featuredBlog?.fields.image?.fields.file.url as string | undefined);
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5'>
-      <Navbar />
+    <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImage} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "unCoded Blog",
+            "description": pageDescription,
+            "url": pageUrl,
+            "publisher": {
+              "@type": "Organization",
+              "name": "unCoded",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://uncoded.ch/logos/logo-complete.png"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5'>
+        <Navbar />
       
       {/* Hero Section */}
       <section className='pt-32 pb-16 px-4'>
@@ -83,12 +135,9 @@ const Blogs = () => {
                       {featuredBlog.fields.image && (
                         <div className='relative h-64 md:h-auto overflow-hidden bg-primary/5'>
                           <img
-                            src={
-                              featuredBlog.fields.image.fields.file.url.startsWith('//')
-                                ? `https:${featuredBlog.fields.image.fields.file.url}`
-                                : featuredBlog.fields.image.fields.file.url
-                            }
-                            alt={featuredBlog.fields.title}
+                            src={getImageUrl(featuredBlog.fields.image.fields.file.url as string | undefined)}
+                            alt={(featuredBlog.fields.image.fields.title as string) || featuredBlog.fields.title}
+                            loading="eager"
                             className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
                           />
                         </div>
@@ -145,8 +194,9 @@ const Blogs = () => {
                             {imageUrl && (
                               <div className='relative h-48 overflow-hidden bg-primary/5'>
                                 <img
-                                  src={imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl}
-                                  alt={blog.fields.title}
+                                  src={getImageUrl(imageUrl as string | undefined)}
+                                  alt={(blog.fields.image?.fields.title as string) || blog.fields.title}
+                                  loading="lazy"
                                   className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
                                 />
                               </div>
@@ -201,8 +251,9 @@ const Blogs = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 
