@@ -10,6 +10,8 @@ import Pricing from "./pages/Pricing";
 import Affiliate from "./pages/Affiliate";
 import AboutUsPage from "./pages/AboutUs";
 import TermsOfService from "./pages/TermsOfService";
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./pages/BlogDetail";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +27,8 @@ const App = () => (
                     <Route path='/affiliate' element={<Affiliate />} />
                     <Route path='/about' element={<AboutUsPage />} />
                     <Route path='/terms' element={<TermsOfService />} />
+                    <Route path='/blogs' element={<Blogs />} />
+                    <Route path='/blogs/:slug' element={<BlogDetail />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

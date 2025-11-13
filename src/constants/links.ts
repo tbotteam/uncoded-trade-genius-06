@@ -6,7 +6,7 @@ export const TRUSTPILOT_LINK = "https://www.trustpilot.com/review/uncoded.com";
 export const BINANCE_PAY_LINK = "https://pay.binance.com/";
 export const BTC_ECHO_LINK = "https://www.btc-echo.de/news/so-erstellst-du-eigenen-trading-bot-sponsored-216281/";
 export const FAQ_PAGE_LINK = "/faq";
-export const BLOG_PAGE_LINK = "/blog";
+export const BLOG_PAGE_LINK = "/blogs";
 export const START_BOT_CTA_LINK="/#cta"
 
 export const AFFILIATE_PAGE_LINKS = {
@@ -23,6 +23,7 @@ export const NAV_LINKS = {
     main: [
         { label: "Home", href: "/" },
         { label: "Pricing", href: "/pricing" },
+        { label: "Blog", href: "/blogs" },
     ],
     company: {
         label: "Company",
