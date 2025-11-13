@@ -67,14 +67,43 @@ const Blogs = () => {
         </script>
       </Helmet>
       
-      <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5'>
+      <div className='min-h-screen bg-gradient-to-b from-background via-background/95 to-primary/5 relative overflow-hidden'>
+        {/* Grid pattern background */}
+        <div className='absolute inset-0 grid-pattern opacity-20'></div>
+
+        {/* Animated background elements */}
+        <div className='absolute inset-0 -z-10 overflow-hidden crypto-particles'>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] animate-pulse-glow'></div>
+          <div className='absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] animate-float'></div>
+          <div
+            className='absolute bottom-1/4 left-1/5 w-[200px] h-[200px] bg-primary/5 rounded-full blur-[60px] animate-float'
+            style={{ animationDelay: "2s" }}
+          ></div>
+
+          {/* Animated rings */}
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <div
+              className='w-[400px] h-[400px] border border-primary/20 rounded-full animate-rotate'
+              style={{ animationDuration: "20s" }}
+            ></div>
+            <div
+              className='w-[600px] h-[600px] border border-primary/10 rounded-full animate-rotate absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+              style={{ animationDuration: "30s" }}
+            ></div>
+            <div
+              className='w-[800px] h-[800px] border border-primary/5 rounded-full animate-rotate absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+              style={{ animationDuration: "40s" }}
+            ></div>
+          </div>
+        </div>
+
         <Navbar />
-      
+
       {/* Hero Section */}
-      <section className='pt-32 pb-16 px-4'>
+      <section className='hero-gradient pt-32 pb-16 px-4 relative z-10'>
         <div className='container mx-auto max-w-7xl'>
           <div className='text-center mb-16'>
-            <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 text-transparent bg-clip-text'>
+            <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient glow'>
               Our Blog
             </h1>
             <p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
