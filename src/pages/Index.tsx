@@ -11,8 +11,25 @@ import FAQSection from "@/components/FAQSection";
 import BlogSection from "@/components/BlogSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
 
 const Index = () => {
+    const { scrollYProgress } = useScroll();
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            const cursorGlow = document.getElementById('cursor-glow');
+            if (cursorGlow) {
+                cursorGlow.style.left = `${e.clientX}px`;
+                cursorGlow.style.top = `${e.clientY}px`;
+            }
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
             <Navbar />
@@ -28,14 +45,18 @@ const Index = () => {
             <CTASection />
             <Footer />
 
-            {/* Cursor glow effect - follows the mouse with a subtle glow */}
+            {/* Cursor glow effect */}
             <div
                 id='cursor-glow'
-                className='fixed w-[200px] h-[200px] rounded-full bg-primary/5 pointer-events-none blur-[80px] -z-1 hidden md:block'
+                className='fixed w-[120px] h-[120px] rounded-full bg-primary/10 pointer-events-none blur-[50px] -z-1 hidden md:block'
+                style={{ transform: 'translate(-50%, -50%)' }}
             ></div>
 
-            {/* Background noise texture overlay */}
-            <div className="fixed inset-0 z-[-2] opacity-[0.02] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
+            {/* Scroll progress indicator */}
+            <motion.div
+                className='fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left'
+                style={{ scaleX: scrollYProgress }}
+            />
         </div>
     );
 };
