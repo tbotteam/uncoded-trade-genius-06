@@ -69,7 +69,7 @@ const PricingPage = () => {
 
             <div
                 className='absolute inset-0 hero-gradient z-0'
-                style={{ height: "60vh" }}
+                style={{ height: "80vh" }}
             ></div>
             <Navbar />
 
@@ -85,7 +85,7 @@ const PricingPage = () => {
                         <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-6 glow bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-spark'>
                             Profit-Sharing Licensing
                         </h1>
-                        <p className='text-xl md:text-2xl text-foreground/80 mb-12'>
+                        <p className='text-xl md:text-2xl text-foreground/80 mb-24'>
                             Only pay for what you earn - a revolutionary
                             approach to trading software
                         </p>
@@ -278,7 +278,7 @@ const PricingPage = () => {
                             className='relative'
                         >
                             <motion.div
-                                className='glass-card p-8 rounded-2xl border border-primary/20 overflow-hidden relative'
+                                className='p-8 rounded-2xl border border-primary/20 overflow-hidden relative bg-transparent backdrop-blur-[4px]'
                                 whileHover={{
                                     boxShadow:
                                         "0 0 30px 5px rgba(255, 193, 7, 0.15)",
@@ -290,7 +290,7 @@ const PricingPage = () => {
                                 onHoverEnd={() => setIsHovered(false)}
                             >
                                 {/* Background glow effect */}
-                                <div className='absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl'></div>
+                                {/* <div className='absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl'></div> */}
 
                                 <div className='relative z-10'>
                                     <div className='flex justify-center mb-6'>
@@ -553,8 +553,8 @@ const PricingPage = () => {
                             </motion.div>
 
                             {/* Decorative elements */}
-                            <div className='absolute -bottom-6 -left-6 w-12 h-12 bg-primary/30 rounded-full blur-xl'></div>
-                            <div className='absolute top-1/2 -right-6 w-12 h-12 bg-primary/20 rounded-full blur-lg'></div>
+                            {/* <div className='absolute -bottom-6 -left-6 w-12 h-12 bg-primary/30 rounded-full blur-xl'></div> */}
+                            {/* <div className='absolute top-1/2 -right-6 w-12 h-12 bg-primary/20 rounded-full blur-lg'></div> */}
                         </motion.div>
                     </motion.div>
                 </div>
