@@ -64,6 +64,9 @@ const PricingPage = () => {
 
     return (
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
+            {/* Grid pattern background */}
+            <div className='absolute inset-0 grid-pattern opacity-20'></div>
+
             <div
                 className='absolute inset-0 hero-gradient z-0'
                 style={{ height: "60vh" }}
