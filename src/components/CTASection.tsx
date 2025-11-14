@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Rocket, Sparkles, ArrowRight, SendHorizonal } from "lucide-react";
-import { PiTelegramLogo } from "react-icons/pi";
+import { Rocket, Gift, BookOpen, Phone } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import {
+    UNCODED_BOT_LINK,
+    CALENDLY_LINK,
+    DOCS_LINK,
+} from "@/constants/links";
 
 const CTASection = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -28,13 +32,18 @@ const CTASection = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className='py-24 relative overflow-hidden'>
+        <section
+            id='cta'
+            ref={sectionRef}
+            className='py-24 relative overflow-hidden'
+        >
             <div className='container mx-auto px-4'>
                 <div
-                    className={`max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${isVisible
-                        ? "opacity-100 transform-none"
-                        : "opacity-0 translate-y-10"
-                        }`}
+                    className={`max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20 transition-all duration-1000 ${
+                        isVisible
+                            ? "opacity-100 transform-none"
+                            : "opacity-0 translate-y-10"
+                    }`}
                 >
                     {/* Decorative elements */}
                     <div className='absolute -top-6 -left-6 w-12 h-12 rounded-full bg-primary/20 animate-float'></div>
@@ -43,69 +52,95 @@ const CTASection = () => {
                         style={{ animationDelay: "1s" }}
                     ></div>
 
-                    <div className='inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6'>
-                        <Sparkles size={16} className='mr-2 animate-spark' />
-                        <span className='text-sm font-medium'>
-                            Automate Your Trading Now!
+                    <div className='text-center mb-12'>
+                        <div className='flex flex-col items-center justify-center mb-4 gap-2'>
+                            <h2 className='text-2xl md:text-4xl font-bold text-gradient'>
+                                Start Automated Trading Today
+                            </h2>
+                            <h2 className='text-xl md:text-3xl font-bold text-foreground'>
+                                Trade Smarter, Not Harder.
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p className='text-base leading-snug md:text-xl md:leading-normal mb-8 text-foreground/80 max-w-2xl mx-auto'>
+                        Grow your crypto holdings automatically — with real
+                        trades, full transparency, and no subscription fees.
+                        Automate buying dips and taking profits — 24/7 — without
+                        monitoring charts.
+                    </p>
+
+                    {/* Gift Badge */}
+                    <div className='inline-flex items-center gap-2 px-3 py-2 rounded-full border border-primary/30 mb-8'>
+                        <Gift className='w-4 h-4 text-primary' />
+                        <span className='text-sm font-semibold text-gradient'>
+                            Start Free with a $100 Test License
                         </span>
                     </div>
 
-                    <h2 className='text-3xl md:text-5xl md:leading-snug font-bold mb-6 text-gradient'>
-                        Ready for Signals?
-                    </h2>
-
-                    <p className='text-lg mb-8 text-foreground/80'>
-                        Join our Telegram Group now and get more information
-                        about our trading bot and discover exclusive features!{" "}
-                        <span className='inline-block animate-float'>🚀</span>
-                    </p>
-
-                    <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                        <a
-                            href='https://t.me/unCoded_bot?start=ref_279365089'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='inline-block'
-                        >
-                            <Button className='bg-primary hover:bg-primary text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden '>
-                                <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                                <span className='relative flex items-center'>
-                                    Start UnCoded
-                                    <PiTelegramLogo
-                                        style={{
-                                            height: "1.25rem",
-                                            width: "1.25rem",
-                                        }}
-                                        className='ml-2 group-hover:translate-x-1 transition-transform duration-500'
-                                    />
-                                </span>
-                            </Button>
-                        </a>
-
-                        <a
-                            href='https://uncoded-1.gitbook.io/uncoded-docs'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='inline-block'
-                        >
+                    <div className='flex flex-col gap-4 justify-center items-center mb-8'>
+                        {/* First row: Two smaller buttons */}
+                        <div className='flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-[520px]'>
                             <Button
                                 variant='outline'
-                                className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary rounded-lg px-8 py-6 text-lg font-medium group relative overflow-hidden'
+                                className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary rounded-lg px-8 py-3 sm:py-6 text-lg font-medium group flex-1'
+                                asChild
                             >
-                                <span className='absolute inset-0 w-0 bg-primary/5 transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                                <span className='relative flex items-center z-10'>
-                                    <span className='relative overflow-hidden'>
-                                        View Documentation
+                                <a
+                                    href={CALENDLY_LINK}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    <span className='flex items-center gap-2'>
+                                        Book a Free Consultation
+                                        <Phone className='w-5 h-5 group-hover:scale-110 transition-transform' />
                                     </span>
-                                    <ArrowRight
-                                        size={16}
-                                        className='ml-2 transition-transform group-hover:translate-x-1 duration-500'
-                                    />
-                                </span>
+                                </a>
                             </Button>
-                        </a>
+
+                            <Button
+                                variant='outline'
+                                className='border-primary/30 hover:bg-primary/5 text-primary hover:text-primary rounded-lg px-8 py-3 sm:py-6 text-lg font-medium group flex-1'
+                                asChild
+                            >
+                                <a
+                                    href={DOCS_LINK}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    <span className='flex items-center gap-2'>
+                                        Learn More in the Docs
+                                        <BookOpen className='w-5 h-5 group-hover:scale-110 transition-transform' />
+                                    </span>
+                                </a>
+                            </Button>
+                        </div>
+
+                        {/* Second row: Main CTA button (double width) */}
+                        <div className='flex justify-center w-full'>
+                            <Button
+                                className='bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-8 py-6 text-lg font-medium relative group overflow-hidden animate-pulse-glow w-full sm:w-[574px]'
+                                asChild
+                            >
+                                <a
+                                    href={UNCODED_BOT_LINK}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    <span className='absolute inset-0 w-0 bg-white/15 transition-all duration-500 ease-in-out group-hover:w-full'></span>
+                                    <span className='relative flex items-center gap-2'>
+                                        Start Your Trading Bot Now!
+                                        <Rocket className='w-5 h-5 group-hover:translate-y-[-2px] transition-transform' />
+                                    </span>
+                                </a>
+                            </Button>
+                        </div>
                     </div>
 
+                    <p className='text-sm text-foreground/60 mt-8 max-w-xl mx-auto'>
+                        Personal onboarding, transparent results, and fair
+                        profit-sharing — that's unCoded.
+                    </p>
                 </div>
             </div>
 

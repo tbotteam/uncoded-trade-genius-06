@@ -87,12 +87,22 @@ export default {
                         boxShadow: "0 0 16px 4px hsl(var(--primary) / 0.4)",
                     },
                 },
+                "slide-down-fade": {
+                    "0%": { opacity: "0", transform: "translateY(-10px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+                "slide-up-fade": {
+                    "0%": { opacity: "1", transform: "translateY(0)" },
+                    "100%": { opacity: "0", transform: "translateY(-10px)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 float: "float 6s ease-in-out infinite",
                 glow: "glow 3s ease-in-out infinite",
+                "slide-down-fade": "slide-down-fade 0.3s ease-out forwards",
+                "slide-up-fade": "slide-up-fade 0.3s ease-out forwards",
             },
         },
     },

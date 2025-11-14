@@ -1,8 +1,14 @@
 import "@/index.css";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ProblemSolutionSection from "@/components/ProblemSolutionSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import TrustSection from "@/components/TrustSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import CommunitySection from "@/components/CommunitySection";
 import MetricsSection from "@/components/MetricsSection";
+import FAQSection from "@/components/FAQSection";
+import BlogSection from "@/components/BlogSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -11,8 +17,14 @@ const Index = () => {
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
             <Navbar />
             <HeroSection />
+            <ProblemSolutionSection />
+            <TestimonialsSection />
+            <TrustSection />
+            <CommunitySection />
             <FeaturesSection />
-            <MetricsSection />
+            {/* <MetricsSection /> */}
+            {/* <BlogSection /> */}
+            <FAQSection />
             <CTASection />
             <Footer />
 

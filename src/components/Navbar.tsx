@@ -1,12 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import {
+    Menu,
+    X,
+    Users,
+    LifeBuoy,
+    HelpCircle,
+    ChevronDown,
+    FileText,
+} from "lucide-react";
 import { PiTelegramLogo } from "react-icons/pi";
+import { TELEGRAM_LINK, NAV_LINKS } from "@/constants/links";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [companyMenuOpen, setCompanyMenuOpen] = useState(false);
+    const [isCompanyMenuVisible, setIsCompanyMenuVisible] = useState(false);
+    const [companyMenuAnimationClass, setCompanyMenuAnimationClass] =
+        useState("");
+    const companyMenuRef = useRef<HTMLLIElement>(null);
+
+    // Icon mapping helper
+    const getIcon = (iconName: string) => {
+        const icons: Record<string, React.ReactNode> = {
+            Users: <Users size={20} className="text-primary" />,
+            LifeBuoy: <LifeBuoy size={20} className="text-primary" />,
+            FileText: <FileText size={20} className="text-primary" />,
+            HelpCircle: <HelpCircle size={20} className="text-primary" />,
+        };
+        return icons[iconName];
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,6 +45,38 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Handle click outside to close company menu
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                companyMenuOpen &&
+                companyMenuRef.current &&
+                !companyMenuRef.current.contains(event.target as Node)
+            ) {
+                setCompanyMenuAnimationClass("animate-slide-up-fade");
+                setCompanyMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [companyMenuOpen]);
+
+    // Toggle company menu
+    const toggleCompanyMenu = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (!companyMenuOpen) {
+            setIsCompanyMenuVisible(true);
+            setCompanyMenuAnimationClass("animate-slide-down-fade");
+            setCompanyMenuOpen(true);
+        } else {
+            setCompanyMenuAnimationClass("animate-slide-up-fade");
+            setCompanyMenuOpen(false);
+        }
+    };
 
     return (
         <header
@@ -44,32 +101,90 @@ const Navbar = () => {
 
                 <nav className='hidden md:block'>
                     <ul className='flex space-x-8'>
-                        <li>
-                            <a
-                                href='#features'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
+                        {NAV_LINKS.main.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
+                                >
+                                    <span>{link.label}</span>
+                                    <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
+                                </a>
+                            </li>
+                        ))}
+                        <li ref={companyMenuRef} className='relative'>
+                            <button
+                                onClick={toggleCompanyMenu}
+                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group flex items-center gap-1'
                             >
-                                <span>Features</span>
+                                <span>{NAV_LINKS.company.label}</span>
+                                <ChevronDown
+                                    size={16}
+                                    className={`transition-transform duration-300 ${
+                                        companyMenuOpen ? "rotate-180" : ""
+                                    }`}
+                                />
                                 <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href='#metrics'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Metrics</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href='https://uncoded-1.gitbook.io/uncoded-docs'
-                                className='relative text-foreground/80 hover:text-primary transition-colors overflow-hidden group'
-                            >
-                                <span>Docs</span>
-                                <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
-                            </a>
+                            </button>
+
+                            {/* Company dropdown menu */}
+                            {isCompanyMenuVisible && (
+                                <div
+                                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-popover/95 backdrop-blur-sm border border-primary/10 rounded-lg shadow-lg p-4 z-50 ${companyMenuAnimationClass}`}
+                                    onAnimationEnd={() => {
+                                        if (
+                                            companyMenuAnimationClass ===
+                                            "animate-slide-up-fade"
+                                        ) {
+                                            setIsCompanyMenuVisible(false);
+                                        }
+                                    }}
+                                >
+                                    <div className='grid gap-4'>
+                                        {NAV_LINKS.company.items.map((item) => (
+                                            item.external ? (
+                                                <a
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                    className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                                >
+                                                    <div className='p-2 bg-primary/10 rounded-full'>
+                                                        {getIcon(item.icon)}
+                                                    </div>
+                                                    <div className='flex flex-col'>
+                                                        <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                            {item.label}
+                                                        </span>
+                                                        <span className='text-xs text-muted-foreground'>
+                                                            {item.description}
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            ) : (
+                                                <Link
+                                                    key={item.href}
+                                                    to={item.href}
+                                                    className='flex items-center gap-3 p-2 hover:bg-card-foreground/5 rounded-md transition-colors duration-200 group'
+                                                >
+                                                    <div className='p-2 bg-primary/10 rounded-full'>
+                                                        {getIcon(item.icon)}
+                                                    </div>
+                                                    <div className='flex flex-col'>
+                                                        <span className='font-medium group-hover:text-primary transition-all duration-200'>
+                                                            {item.label}
+                                                        </span>
+                                                        <span className='text-xs text-muted-foreground'>
+                                                            {item.description}
+                                                        </span>
+                                                    </div>
+                                                </Link>
+                                            )
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </li>
                     </ul>
                 </nav>
@@ -80,12 +195,12 @@ const Navbar = () => {
                         className='border-primary/30 hover:bg-primary/10 text-primary hover:text-primary rounded-lg font-medium group relative transition-colors duration-300'
                     >
                         <a
-                            href='https://t.me/unCoded_bot?start=ref_279365089'
+                            href={TELEGRAM_LINK}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='relative overflow-hidden'
                         >
-                            <span>Start Uncoded</span>
+                            <span>Join Community</span>
                             <span className='absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300'></span>
                         </a>
                         <PiTelegramLogo
@@ -108,7 +223,7 @@ const Navbar = () => {
 
             {/* Mobile menu */}
             <div
-                className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-md z-40 transition-transform duration-300 ${
+                className={`md:hidden fixed inset-0 h-screen md:h-auto bg-background backdrop-blur-md z-40 transition-transform duration-300 ${
                     isOpen ? "translate-x-0" : "translate-x-full"
                 }`}
             >
@@ -124,34 +239,40 @@ const Navbar = () => {
 
                     <nav>
                         <ul className='flex flex-col space-y-6 items-center'>
-                            <li>
-                                <a
-                                    href='#features'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Features
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href='#metrics'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Metrics
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href='https://t.me/unCoded_bot?start=ref_279365089'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-foreground/80 hover:text-primary transition-colors text-xl'
-                                >
-                                    Start UnCoded
-                                </a>
-                            </li>
+                            {NAV_LINKS.main.map((link) => (
+                                <li key={link.href}>
+                                    <a
+                                        href={link.href}
+                                        className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                            {NAV_LINKS.company.items.map((item) => (
+                                <li key={item.href}>
+                                    {item.external ? (
+                                        <a
+                                            href={item.href}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to={item.href}
+                                            className='text-foreground/80 hover:text-primary transition-colors text-xl'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>
