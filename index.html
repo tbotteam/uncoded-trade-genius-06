@@ -7,10 +7,14 @@
       <!-- Preconnect to external domains -->
       <link rel="preconnect" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://cdn.brandfetch.io" />
 
-      <!-- Preload critical fonts -->
+      <!-- Preload critical fonts - only heading font for FCP -->
       <link rel="preload" href="/fonts/clash-display/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin />
-      <link rel="preload" href="/fonts/urbanist/Urbanist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+
+      <!-- Critical CSS inlined for instant FCP -->
+      <style>:root{--background:240 15% 8%;--foreground:60 30% 98%;--primary:45 93% 60%;--primary-foreground:220 20% 12%;--border:220 20% 20%;--radius:0.75rem}*{border-color:hsl(var(--border))}html{scroll-behavior:smooth}body{background-color:hsl(var(--background));color:hsl(var(--foreground));-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:"Urbanist",system-ui,-apple-system,sans-serif;margin:0}h1,h2,h3,h4,h5,h6{font-family:"ClashDisplay",system-ui,-apple-system,sans-serif}.min-h-screen{min-height:100vh}.bg-background{background-color:hsl(var(--background))}.text-foreground{color:hsl(var(--foreground))}.overflow-x-hidden{overflow-x:hidden}.fixed{position:fixed}.top-0{top:0}.left-0{left:0}.right-0{right:0}.z-50{z-index:50}.container{width:100%;max-width:1400px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-2{gap:0.5rem}.text-xl{font-size:1.25rem}.font-bold{font-weight:700}.text-primary{color:hsl(var(--primary))}.hero-gradient{background:radial-gradient(circle at 50% 0%,hsl(45 93% 50% / 0.2) 0%,transparent 60%)}.text-gradient{background:linear-gradient(135deg,#ffb800 0%,#ff8a00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.grid-pattern{background-image:linear-gradient(to right,hsl(var(--primary) / 0.1) 1px,transparent 1px),linear-gradient(to bottom,hsl(var(--primary) / 0.12) 1px,transparent 1px);background-size:50px 50px}.glow{text-shadow:0 0 10px hsl(var(--primary) / 0.5)}.hidden{display:none}@media(min-width:768px){.md\:block{display:block}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4,0,0.6,1) infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}</style>
+
       <title>Binance Trading Bot by unCoded – Automated Crypto Trading with Full Control</title>
       <meta name="description" content="Automated Binance trading with full control of your funds. No subscriptions, profit-sharing only. Start with a free $100 trading test." />
       <meta name="keywords" content="secure trading bot Binance, trustworthy crypto bot, reliable crypto trading automation, automated Binance trading, Swiss crypto bot, profit-sharing crypto bot, safe crypto bot, passive crypto income, non-custodial trading bot, cryptocurrency trading, $100 test license" />
@@ -31,8 +35,21 @@
       <meta name="twitter:title" content="unCoded – Secure & Reliable Binance Trading Bot" />
       <meta name="twitter:description" content="Automated Binance trading with full control of your funds. No subscriptions, profit-sharing only. Start with a free $100 test license." />
       <meta name="twitter:image" content="https://uncoded.ch/og-image.png" />
+   </head>
+   <body>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6SHZJ2" height="0" width="0"
+         style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <div id="root"></div>
+      <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+      <!-- <script
+         src="https://cdn.gpteng.co/gptengineer.js"
+         type="module"
+         ></script> -->
+      <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
 
-      <!-- Structured Data -->
+      <!-- Structured Data - Non-blocking -->
       <script type="application/ld+json">
       {
           "@context": "https://schema.org",
@@ -49,19 +66,6 @@
           }
       }
       </script>
-   </head>
-   <body>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6SHZJ2" height="0" width="0"
-         style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <div id="root"></div>
-      <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-      <!-- <script
-         src="https://cdn.gpteng.co/gptengineer.js"
-         type="module"
-         ></script> -->
-      <script type="module" src="/src/main.tsx"></script>
 
       <!-- Google Tag Manager - Loaded async at end of body -->
       <script>

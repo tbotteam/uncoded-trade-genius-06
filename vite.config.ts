@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import viteCompression from "vite-plugin-compression";
+import { deferCssPlugin } from "./vite-plugin-defer-css";
+import { modulePreloadPlugin } from "./vite-plugin-modulepreload";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -13,6 +15,8 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
+    mode === 'production' && deferCssPlugin(),
+    mode === 'production' && modulePreloadPlugin(),
     mode === 'production' && viteCompression({
       algorithm: 'gzip',
       ext: '.gz',
