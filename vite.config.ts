@@ -44,36 +44,19 @@ export default defineConfig(({ mode }) => ({
     // Optimize chunk splitting
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // Core vendor chunks
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-core';
-            }
-            if (id.includes('react-router-dom')) {
-              return 'react-router';
-            }
-            if (id.includes('framer-motion')) {
-              return 'framer-motion';
-            }
-            if (id.includes('lucide-react')) {
-              return 'lucide-icons';
-            }
-            if (id.includes('@radix-ui')) {
-              return 'radix-ui';
-            }
-            if (id.includes('@tanstack/react-query')) {
-              return 'react-query';
-            }
-            if (id.includes('@vercel/analytics')) {
-              return 'analytics';
-            }
-            if (id.includes('contentful')) {
-              return 'contentful';
-            }
-            // All other node_modules in a separate chunk
-            return 'vendor';
-          }
+        manualChunks: {
+          // Vendor chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['framer-motion', 'lucide-react'],
+          'radix-vendor': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-popover',
+            '@radix-ui/react-scroll-area',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-toast',
+          ],
         },
       },
     },
@@ -87,6 +70,5 @@ export default defineConfig(({ mode }) => ({
   // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
-    exclude: ['@vercel/analytics'],
   },
 }));
