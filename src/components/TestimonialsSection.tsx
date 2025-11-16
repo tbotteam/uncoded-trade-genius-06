@@ -5,47 +5,33 @@ import { MessageCircle, ExternalLink } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import StarRating from "./StarRating";
 import testimonialsData from "@/data/testimonials.json";
+import { motion } from "framer-motion";
 
 interface TestimonialProps {
     rating: number;
     text: string;
     author: string;
-    delay: number;
+    index: number;
 }
 
-const Testimonial = ({ rating, text, author, delay }: TestimonialProps) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
+const Testimonial = ({ rating, text, author, index }: TestimonialProps) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const isEven = index % 2 === 0;
 
     return (
+        <motion.div
+            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+            className="h-full"
+        >
         <Card
-            ref={ref}
-            className={`glass-card border border-primary/10 hover:border-primary/30 transition-all duration-500 hover:scale-105 ${
-                isVisible
-                    ? "opacity-100 transform-none"
-                    : "opacity-0 translate-y-10"
+            className={`glass-card border border-primary/10 hover:border-primary/30 transition-all duration-500 h-full ${
+                isHovered ? "scale-105" : ""
             }`}
-            style={{ animationDelay: `${delay}ms` }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             <CardContent className='p-6'>
                 <div className='mb-3'>
@@ -59,6 +45,7 @@ const Testimonial = ({ rating, text, author, delay }: TestimonialProps) => {
                 </p>
             </CardContent>
         </Card>
+        </motion.div>
     );
 };
 
@@ -66,7 +53,13 @@ const TestimonialsSection = () => {
     return (
         <section className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
-                <div className='text-center mb-12'>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className='text-center mb-12'
+                >
                     <div className='flex items-center justify-center mb-4 gap-2'>
                         <MessageCircle
                             size={40}
@@ -79,14 +72,14 @@ const TestimonialsSection = () => {
                     <h3 className='text-2xl md:text-3xl font-medium mb-4 text-foreground max-w-2xl mx-auto'>
                         Trusted by Traders Worldwide
                     </h3>
-                </div>
+                </motion.div>
 
                 <div className='grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8'>
                     {testimonialsData.testimonials.map((testimonial, index) => (
                         <Testimonial
                             key={index}
                             {...testimonial}
-                            delay={index * 200}
+                            index={index}
                         />
                     ))}
                 </div>

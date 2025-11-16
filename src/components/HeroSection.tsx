@@ -3,6 +3,7 @@ import { START_BOT_CTA_LINK } from "@/constants/links";
 import { DollarSign, Gift, Shield, TrendingUp, Users, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -21,12 +22,10 @@ const HeroSection = () => {
 
             <div className='container mx-auto px-4 py-12 relative z-10'>
                 <div className='max-w-4xl mx-auto text-center'>
-                    <div
-                        className={`transition-all duration-1000 ${
-                            isVisible
-                                ? "opacity-100 transform-none"
-                                : "opacity-0 translate-y-10"
-                        }`}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <h1 className='text-3xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground glow leading-tight text-gradient'>
                             unCoded Trading Bot
@@ -45,8 +44,14 @@ const HeroSection = () => {
                             The unCoded Binance Trading Bot is built in
                             Switzerland and trusted by traders across Europe
                         </p>
+                    </motion.div>
 
-                        <div className='mx-auto mb-6 max-w-2xl shadow-xl rounded-2xl bg-primary/10 border border-primary/20 px-6 py-5 flex flex-col items-center gap-4 animate-fade-in animate-delay-150'>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className='mx-auto mb-6 max-w-2xl shadow-xl rounded-2xl bg-primary/10 border border-primary/20 px-6 py-5 flex flex-col items-center gap-4'
+                    >
                             <div className='flex items-center'>
                                 <Gift className='w-6 h-6 text-primary mr-1.5' />
                                 <span className='text-base md:text-lg font-semibold text-gradient'>
@@ -114,8 +119,7 @@ const HeroSection = () => {
                                     </span>
                                 </a>
                             </Button>
-                        </div>
-                    </div>
+                        </motion.div>
                 </div>
             </div>
 

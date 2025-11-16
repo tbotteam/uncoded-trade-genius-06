@@ -10,6 +10,7 @@ import { useState, memo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DOCS_LINK } from "@/constants/links";
+import { motion } from "framer-motion";
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -20,18 +21,22 @@ interface FeatureCardProps {
 
 const FeatureCard = memo(({ icon, title, description, index }: FeatureCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
+    const isEven = index % 2 === 0;
 
     return (
+        <motion.div
+            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+            className="h-full"
+        >
         <Card
-            className={`glass-card rounded-xl overflow-hidden transition-all duration-500 transform ${
+            className={`glass-card rounded-xl overflow-hidden transition-all duration-500 transform h-full ${
                 isHovered ? "scale-105 shadow-lg shadow-primary/20" : ""
             }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            style={{
-                animationDelay: `${index * 200}ms`,
-                animationFillMode: "both",
-            }}
         >
             <CardContent className='p-6 relative'>
                 <div
@@ -59,6 +64,7 @@ const FeatureCard = memo(({ icon, title, description, index }: FeatureCardProps)
                 </div>
             </CardContent>
         </Card>
+        </motion.div>
     );
 });
 
@@ -93,16 +99,22 @@ const FeaturesSection = () => {
     return (
         <section id='features' className='py-24 relative overflow-hidden'>
             <div className='container mx-auto px-4'>
-                <div className='text-center mb-12'>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className='text-center mb-12'
+                >
                     <div className='flex items-center justify-center mb-4 gap-2'>
                         <Puzzle size={40} className='text-primary my-0' />
                         <h2 className='text-3xl md:text-5xl font-bold text-gradient'>
                             Key Features
                         </h2>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className='grid md:grid-cols-2 gap-8 lg:gap-16 animate-fade-in animate-delay-200 mb-12'>
+                <div className='grid md:grid-cols-2 gap-8 lg:gap-16 mb-12'>
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}

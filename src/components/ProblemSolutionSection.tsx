@@ -11,6 +11,7 @@ import {
     Zap,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const ProblemSolutionSection = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +45,13 @@ const ProblemSolutionSection = () => {
             <div className='container mx-auto px-4'>
                 {/* Problem Section */}
                 <div className='mb-48'>
-                    <div className='text-center mb-12'>
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className='text-center mb-12'
+                    >
                         <div className='flex items-center justify-center mb-4 gap-2'>
                             <Lightbulb
                                 size={40}
@@ -58,14 +65,16 @@ const ProblemSolutionSection = () => {
                             Manual trading leads to emotional decisions, missed
                             opportunities, and inconsistent results.
                         </h3>
-                    </div>
+                    </motion.div>
 
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                    >
                     <Card
-                        className={`glass-card max-w-3xl mx-auto border border-primary/20 transition-all duration-1000 ${
-                            isVisible
-                                ? "opacity-100 transform-none"
-                                : "opacity-0 translate-y-10"
-                        }`}
+                        className='glass-card max-w-3xl mx-auto border border-primary/20'
                     >
                         <CardContent className='p-8'>
                             <blockquote className='prose prose-invert max-w-none border-l-4 border-primary pl-6 italic text-lg text-foreground/80 leading-relaxed'>
@@ -77,11 +86,18 @@ const ProblemSolutionSection = () => {
                             </blockquote>
                         </CardContent>
                     </Card>
+                    </motion.div>
                 </div>
 
                 {/* Solution Section */}
                 <div>
-                    <div className='text-center mb-12'>
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className='text-center mb-12'
+                    >
                         <div className='flex items-center justify-center mb-4 gap-2'>
                             <Settings size={40} className='my-0 text-primary' />
                             <h2 className='text-3xl md:text-5xl font-bold text-gradient'>
@@ -91,14 +107,16 @@ const ProblemSolutionSection = () => {
                         <h2 className='text-2xl md:text-3xl font-medium mb-4 text-foreground max-w-2xl mx-auto'>
                             Automated Crypto Trading on Binance
                         </h2>
-                    </div>
+                    </motion.div>
 
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                    >
                     <Card
-                        className={`glass-card border border-primary/20 max-w-4xl mx-auto transition-all duration-1000 ${
-                            isVisible
-                                ? "opacity-100 transform-none"
-                                : "opacity-0 translate-y-10"
-                        }`}
+                        className='glass-card border border-primary/20 max-w-4xl mx-auto'
                     >
                         <CardContent className='px-4 py-8 md:p-12'>
                             <h3 className='text-2xl md:text-3xl font-bold mb-8 text-center text-foreground flex items-center justify-center gap-2'>
@@ -271,6 +289,7 @@ const ProblemSolutionSection = () => {
                             </div>
                         </CardContent>
                     </Card>
+                    </motion.div>
                 </div>
             </div>
 
