@@ -63,7 +63,7 @@ const HeroSection = () => {
                                     className='px-3 py-2 border-primary/30 bg-primary/5 text-foreground/90 text-sm flex items-center justify-center gap-2'
                                 >
                                     <span className='flex items-center gap-1'>
-                                       <img src="/logos/switzerland.webp" alt="Swiss Flag" className="w-3 h-3" />
+                                       <img src="/logos/switzerland.webp" alt="Swiss Flag" className="w-3 h-3" width="12" height="12" loading="eager" />
                                         Developed in Switzerland.
                                     </span>
                                 </Badge>
