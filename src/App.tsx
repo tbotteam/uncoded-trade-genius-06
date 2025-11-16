@@ -5,9 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
-
-// Lazy load Analytics to reduce initial bundle
-const Analytics = lazy(() => import("@vercel/analytics/react").then(module => ({ default: module.Analytics })));
+import { Analytics } from "@vercel/analytics/react";
 
 // Eager load Index page for faster initial render
 import Index from "./pages/Index";
@@ -26,9 +24,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
     <HelmetProvider>
-        <Suspense fallback={null}>
-            <Analytics />
-        </Suspense>
+        <Analytics />
         <QueryClientProvider client={queryClient}>
             <TooltipProvider>
                 <Toaster />
