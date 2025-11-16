@@ -42,7 +42,7 @@ const CTASection = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className='max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-2xl text-center relative z-10 border border-primary/20'
                 >
@@ -56,7 +56,7 @@ const CTASection = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{}}
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                         className='text-center mb-12'
                     >
@@ -73,7 +73,7 @@ const CTASection = () => {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{}}
                         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         className='text-base leading-snug md:text-xl md:leading-normal mb-8 text-foreground/80 max-w-2xl mx-auto'
                     >
@@ -87,7 +87,7 @@ const CTASection = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{}}
                         transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
                         className='inline-flex items-center gap-2 px-3 py-2 rounded-full border border-primary/30 mb-8'
                     >
@@ -100,7 +100,7 @@ const CTASection = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{}}
                         transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
                         className='flex flex-col gap-4 justify-center items-center mb-8'
                     >
@@ -165,7 +165,7 @@ const CTASection = () => {
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{}}
                         transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                         className='text-sm text-foreground/60 mt-8 max-w-xl mx-auto'
                     >

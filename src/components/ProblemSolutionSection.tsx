@@ -48,7 +48,7 @@ const ProblemSolutionSection = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className='text-center mb-12'
                     >
@@ -70,7 +70,7 @@ const ProblemSolutionSection = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
                     >
                     <Card
@@ -94,7 +94,7 @@ const ProblemSolutionSection = () => {
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
                         className='text-center mb-12'
                     >
@@ -112,7 +112,7 @@ const ProblemSolutionSection = () => {
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ margin: "-100px" }}
                         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
                     >
                     <Card

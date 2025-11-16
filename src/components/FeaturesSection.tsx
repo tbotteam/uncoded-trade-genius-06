@@ -27,7 +27,7 @@ const FeatureCard = memo(({ icon, title, description, index }: FeatureCardProps)
         <motion.div
             initial={{ opacity: 0, x: isEven ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ margin: "-100px" }}
             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
             className="h-full"
         >
@@ -102,7 +102,7 @@ const FeaturesSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className='text-center mb-12'
                 >
