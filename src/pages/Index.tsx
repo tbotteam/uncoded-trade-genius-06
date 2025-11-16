@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
+import OrdersChartSection from "@/components/OrdersChartSection";
 import { useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 
@@ -35,6 +36,7 @@ const Index = () => {
         <div className='min-h-screen bg-background text-foreground overflow-x-hidden'>
             <Navbar />
             <HeroSection />
+            <OrdersChartSection />
             <ProblemSolutionSection />
 
             {/* Cursor glow effect */}
