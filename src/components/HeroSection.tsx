@@ -1,10 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { START_BOT_CTA_LINK } from "@/constants/links";
 import { DollarSign, Gift, Shield, TrendingUp, Users, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 
 const HeroSection = () => {
-    // Removed useState/useEffect for instant render - animation handled by CSS only
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 300);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section className='hero-gradient min-h-screen flex flex-col justify-center pt-16 overflow-hidden relative'>
             {/* Grid pattern background */}
@@ -12,7 +21,13 @@ const HeroSection = () => {
 
             <div className='container mx-auto px-4 py-12 relative z-10'>
                 <div className='max-w-4xl mx-auto text-center'>
-                    <div className='animate-fade-in'>
+                    <div
+                        className={`transition-all duration-1000 ${
+                            isVisible
+                                ? "opacity-100 transform-none"
+                                : "opacity-0 translate-y-10"
+                        }`}
+                    >
                         <h1 className='text-3xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground glow leading-tight text-gradient'>
                             unCoded Trading Bot
                         </h1>
@@ -94,7 +109,7 @@ const HeroSection = () => {
                                         Start Your Trading Bot Now
                                         <Zap
                                             size={20}
-                                            className='ml-2'
+                                            className='ml-2 animate-bounce-slow '
                                         />
                                     </span>
                                 </a>
