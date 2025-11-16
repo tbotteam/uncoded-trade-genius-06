@@ -119,30 +119,10 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            {/* Animated background elements */}
-            <div className='absolute inset-0 -z-10 overflow-hidden crypto-particles'>
-                <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] animate-pulse-glow'></div>
-                <div className='absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] animate-float'></div>
-                <div
-                    className='absolute bottom-1/4 left-1/5 w-[200px] h-[200px] bg-primary/5 rounded-full blur-[60px] animate-float'
-                    style={{ animationDelay: "2s" }}
-                ></div>
-
-                {/* Animated rings */}
-                <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    <div
-                        className='w-[400px] h-[400px] border border-primary/20 rounded-full animate-rotate'
-                        style={{ animationDuration: "20s" }}
-                    ></div>
-                    <div
-                        className='w-[600px] h-[600px] border border-primary/10 rounded-full animate-rotate absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-                        style={{ animationDuration: "30s" }}
-                    ></div>
-                    <div
-                        className='w-[800px] h-[800px] border border-primary/5 rounded-full animate-rotate absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-                        style={{ animationDuration: "40s" }}
-                    ></div>
-                </div>
+            {/* Animated background elements - Optimized */}
+            <div className='absolute inset-0 -z-10 overflow-hidden'>
+                <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px]'></div>
+                <div className='absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px]'></div>
             </div>
         </section>
     );

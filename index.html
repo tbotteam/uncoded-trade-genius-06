@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- Google Tag Manager -->
-      <script>
-         (function (w, d, s, l, i) {
-             w[l] = w[l] || [];
-             w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-             var f = d.getElementsByTagName(s)[0],
-                 j = d.createElement(s),
-                 dl = l != 'dataLayer' ? '&l=' + l : '';
-             j.async = true;
-             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-             f.parentNode.insertBefore(j, f);
-         })(window, document, 'script', 'dataLayer', 'GTM-5D6SHZJ2');
-      </script>
-      <!-- End Google Tag Manager -->
-
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Preconnect to external domains -->
+      <link rel="preconnect" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+      <!-- Preload critical fonts -->
+      <link rel="preload" href="/fonts/clash-display/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin />
+      <link rel="preload" href="/fonts/urbanist/Urbanist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
       <title>Binance Trading Bot by unCoded – Automated Crypto Trading with Full Control</title>
       <meta name="description" content="Automated Binance trading with full control of your funds. No subscriptions, profit-sharing only. Start with a free $100 trading test." />
       <meta name="keywords" content="secure trading bot Binance, trustworthy crypto bot, reliable crypto trading automation, automated Binance trading, Swiss crypto bot, profit-sharing crypto bot, safe crypto bot, passive crypto income, non-custodial trading bot, cryptocurrency trading, $100 test license" />
@@ -69,5 +62,20 @@
          type="module"
          ></script> -->
       <script type="module" src="/src/main.tsx"></script>
+
+      <!-- Google Tag Manager - Loaded async at end of body -->
+      <script>
+         (function (w, d, s, l, i) {
+             w[l] = w[l] || [];
+             w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+             var f = d.getElementsByTagName(s)[0],
+                 j = d.createElement(s),
+                 dl = l != 'dataLayer' ? '&l=' + l : '';
+             j.async = true;
+             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+             f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-5D6SHZJ2');
+      </script>
+      <!-- End Google Tag Manager -->
    </body>
 </html>

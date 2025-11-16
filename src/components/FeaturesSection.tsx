@@ -6,7 +6,7 @@ import {
     CircleDot,
     Puzzle,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DOCS_LINK } from "@/constants/links";
@@ -18,7 +18,7 @@ interface FeatureCardProps {
     index: number;
 }
 
-const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
+const FeatureCard = memo(({ icon, title, description, index }: FeatureCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -35,12 +35,12 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
         >
             <CardContent className='p-6 relative'>
                 <div
-                    className={`absolute top-0 right-0 w-24 h-24 rounded-full -mr-10 -mt-10 z-0 
+                    className={`absolute top-0 right-0 w-24 h-24 rounded-full -mr-10 -mt-10 z-0
                                 overflow-hidden`}
                 >
                     <div
                         className={`w-full h-full bg-primary rounded-full
-                                    transition-all duration-500 ease-in-out origin-top-right 
+                                    transition-all duration-500 ease-in-out origin-top-right
                                     ${
                                         isHovered
                                             ? "opacity-60 scale-25"
@@ -60,36 +60,30 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
             </CardContent>
         </Card>
     );
-};
+});
 
 const FeaturesSection = () => {
     const features = [
         {
-            icon: <Activity size={24} className='animate-spark' />,
+            icon: <Activity size={24} />,
             title: "Smart Micro-Trading Engine",
             description:
                 "captures even the smallest market movements with thousands of trades per day, optimizing entries and exits automatically.",
         },
         {
-            icon: <Shield size={24} className='animate-spark' />,
+            icon: <Shield size={24} />,
             title: "Individual Risk Management",
             description:
                 "full control through flexible risk settings: define stop-loss levels, position sizes, and a smart rebuy function that allows the bot to react intelligently to falling prices — instead of buying blindly into a downtrend.",
         },
-        // {
-        //     icon: <Zap size={24} className='animate-spark' />,
-        //     title: "Simple No-Code Setup",
-        //     description:
-        //         "start within minutes using proven default settings and adjust anytime to fit your strategy.",
-        // },
         {
-            icon: <TrendingUp size={24} className='animate-bounce-slow' />,
+            icon: <TrendingUp size={24} />,
             title: "Transparent Reporting",
             description:
                 "see every trade, live profit & loss, and detailed performance analytics in real time.",
         },
         {
-            icon: <CircleDot size={24} className='animate-pulse' />,
+            icon: <CircleDot size={24} />,
             title: "Fair Profit-Sharing Model",
             description:
                 "ArrowTrade AG earns only 30 % of your actual profits — no fixed fees, no subscriptions.",
@@ -131,20 +125,9 @@ const FeaturesSection = () => {
                 </div>
             </div>
 
-            {/* Background elements */}
+            {/* Background elements - Static for better performance */}
             <div className='absolute top-1/2 left-1/4 -z-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]'></div>
             <div className='absolute bottom-0 right-0 -z-10 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px]'></div>
-
-            {/* Floating elements */}
-            <div className='absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-float'></div>
-            <div
-                className='absolute bottom-20 right-10 w-6 h-6 bg-primary/20 rounded-full animate-float'
-                style={{ animationDelay: "1s" }}
-            ></div>
-            <div
-                className='absolute top-1/2 right-1/4 w-3 h-3 bg-primary/40 rounded-full animate-float'
-                style={{ animationDelay: "2s" }}
-            ></div>
         </section>
     );
 };

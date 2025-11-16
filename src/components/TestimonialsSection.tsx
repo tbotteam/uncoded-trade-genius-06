@@ -105,6 +105,9 @@ const TestimonialsSection = () => {
                                     src='https://cdn.brandfetch.io/idjtYmGVfB/idMNTkMPlG.svg?c=1dxbfHSJFAPEGdCLU4o5B'
                                     alt='Trustpilot'
                                     className='h-6 sm:h-8 w-auto'
+                                    loading='lazy'
+                                    width='120'
+                                    height='32'
                                 />
                             </span>
                         </div>

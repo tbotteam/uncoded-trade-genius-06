@@ -86,22 +86,22 @@
 
     .animate-float {
         animation: float 6s ease-in-out infinite;
+        will-change: transform;
     }
 
     .animate-pulse-glow {
         animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        will-change: box-shadow;
     }
 
     .animate-spark {
         animation: spark 2s ease-in-out infinite;
+        will-change: filter;
     }
 
     .animate-bounce-slow {
         animation: bounce 3s ease-in-out infinite;
-    }
-
-    .animate-rotate {
-        animation: rotate 10s linear infinite;
+        will-change: transform;
     }
 
     .animate-gradient-x {
