@@ -92,30 +92,6 @@ const PricingPage = () => {
                     </motion.div>
                 </div>
 
-                <div className='absolute top-0 left-0 w-full h-full overflow-hidden -z-10'>
-                    {[...Array(16)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className='floating-coin absolute opacity-20'
-                            style={{
-                                top: `${Math.random() * 100}%`,
-                                left: `${Math.random() * 100}%`,
-                                transform: `scale(${
-                                    0.5 + Math.random() * 0.5
-                                })`,
-                            }}
-                            animate={floatingAnimation}
-                            transition={{
-                                duration: 3 + Math.random() * 2,
-                                delay: Math.random() * 2,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                            }}
-                        >
-                            <Bitcoin className='text-primary w-10 h-10' />
-                        </motion.div>
-                    ))}
-                </div>
             </section>
 
             {/* Main pricing model */}

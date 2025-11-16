@@ -1,18 +1,19 @@
 import "@/index.css";
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import TrustSection from "@/components/TrustSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import CommunitySection from "@/components/CommunitySection";
-import MetricsSection from "@/components/MetricsSection";
-import FAQSection from "@/components/FAQSection";
-import BlogSection from "@/components/BlogSection";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
+
+// Lazy load below-the-fold sections
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const TrustSection = lazy(() => import("@/components/TrustSection"));
+const CommunitySection = lazy(() => import("@/components/CommunitySection"));
+const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const CTASection = lazy(() => import("@/components/CTASection"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
     const { scrollYProgress } = useScroll();
@@ -35,15 +36,6 @@ const Index = () => {
             <Navbar />
             <HeroSection />
             <ProblemSolutionSection />
-            <TestimonialsSection />
-            <TrustSection />
-            <CommunitySection />
-            <FeaturesSection />
-            {/* <MetricsSection /> */}
-            {/* <BlogSection /> */}
-            <FAQSection />
-            <CTASection />
-            <Footer />
 
             {/* Cursor glow effect */}
             <div
@@ -51,6 +43,15 @@ const Index = () => {
                 className='fixed w-[120px] h-[120px] rounded-full bg-primary/10 pointer-events-none blur-[50px] -z-1 hidden md:block'
                 style={{ transform: 'translate(-50%, -50%)' }}
             ></div>
+            <Suspense fallback={<div className="py-12"></div>}>
+                <TestimonialsSection />
+                <TrustSection />
+                <CommunitySection />
+                <FeaturesSection />
+                <FAQSection />
+                <CTASection />
+                <Footer />
+            </Suspense>
 
             {/* Scroll progress indicator */}
             <motion.div

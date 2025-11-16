@@ -45,10 +45,19 @@
         @apply bg-background text-foreground antialiased;
         font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
         font-family: "Urbanist", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
     }
 
     html {
         @apply scroll-smooth;
+    }
+
+    /* Improve rendering performance for off-screen content */
+    section {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
     }
 
     h1,
@@ -100,8 +109,13 @@
         animation: bounce 3s ease-in-out infinite;
     }
 
-    .animate-rotate {
-        animation: rotate 10s linear infinite;
+    /* Apply will-change only on hover for better performance */
+    .animate-float:hover {
+        will-change: transform;
+    }
+
+    .animate-pulse-glow:hover {
+        will-change: box-shadow;
     }
 
     .animate-gradient-x {
@@ -273,6 +287,7 @@
         format("woff2-variations");
     font-weight: 200 700; /* Extralight to Bold for variable font */
     font-display: swap;
+    unicode-range: U+0020-007F, U+00A0-00FF; /* Latin subset for faster loading */
 }
 
 @font-face {
@@ -281,4 +296,5 @@
         format("truetype-variations");
     font-weight: 100 900; /* Full range for Urbanist variable font */
     font-display: swap;
+    unicode-range: U+0020-007F, U+00A0-00FF; /* Latin subset for faster loading */
 }
