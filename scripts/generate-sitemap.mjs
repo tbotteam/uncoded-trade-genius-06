@@ -97,7 +97,7 @@ async function generateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://uncoded.ch/</loc>
+    <loc>https://www.uncoded.ch/</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -105,7 +105,7 @@ async function generateSitemap() {
   
   <!-- Pricing -->
   <url>
-    <loc>https://uncoded.ch/pricing</loc>
+    <loc>https://www.uncoded.ch/pricing</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -113,7 +113,7 @@ async function generateSitemap() {
   
   <!-- Affiliate -->
   <url>
-    <loc>https://uncoded.ch/affiliate</loc>
+    <loc>https://www.uncoded.ch/affiliate</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -121,7 +121,7 @@ async function generateSitemap() {
   
   <!-- About -->
   <url>
-    <loc>https://uncoded.ch/about</loc>
+    <loc>https://www.uncoded.ch/about</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -129,7 +129,7 @@ async function generateSitemap() {
   
   <!-- Terms -->
   <url>
-    <loc>https://uncoded.ch/terms</loc>
+    <loc>https://www.uncoded.ch/terms</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -137,7 +137,7 @@ async function generateSitemap() {
   
   <!-- Blog Index -->
   <url>
-    <loc>https://uncoded.ch/blogs</loc>
+    <loc>https://www.uncoded.ch/blogs</loc>
     <lastmod>${formatDate(new Date())}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
