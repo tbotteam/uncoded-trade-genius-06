@@ -86,9 +86,9 @@ async function generateSitemap() {
       const lastmod = formatDate(post.sys.updatedAt);
       
       return `  <url>
-    <loc>https://uncoded.ch/blogs/${slug}</loc>
+    <loc>https://www.uncoded.ch/blogs/${slug}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;
     }).join('\n');
