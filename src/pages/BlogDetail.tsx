@@ -93,7 +93,7 @@ const BlogDetail = () => {
   
   // Helper to get image URL safely
   const getImageUrl = (url: string | undefined): string => {
-    if (!url) return "https://uncoded.ch/og-image.png";
+    if (!url) return "https://www.uncoded.ch/og-image.png";
     return url.startsWith('//') ? `https:${url}` : url;
   };
   
