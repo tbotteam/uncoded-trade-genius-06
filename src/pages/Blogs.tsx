@@ -17,11 +17,11 @@ const Blogs = () => {
   
   const pageTitle = "Blog - unCoded | Crypto Trading Insights & Updates";
   const pageDescription = "Read the latest insights, updates, and stories about automated crypto trading, Binance bots, and trading strategies from the unCoded team.";
-  const pageUrl = "https://uncoded.ch/blogs";
+  const pageUrl = "https://www.uncoded.ch/blogs";
   
   // Helper to get image URL safely
   const getImageUrl = (imageUrl: string | undefined): string => {
-    if (!imageUrl) return "https://uncoded.ch/og-image.png";
+    if (!imageUrl) return "https://www.uncoded.ch/og-image.png";
     return imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl;
   };
   

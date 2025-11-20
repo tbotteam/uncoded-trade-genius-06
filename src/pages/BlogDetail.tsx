@@ -100,7 +100,7 @@ const BlogDetail = () => {
   // SEO data
   const pageTitle = blog ? `${blog.fields.title} - unCoded Blog` : "Blog Post - unCoded";
   const pageDescription = blog ? extractExcerpt(blog.fields.body, 160) : "Read the latest insights from unCoded";
-  const pageUrl = `https://uncoded.ch/blogs/${slug}`;
+  const pageUrl = `https://www.uncoded.ch/blogs/${slug}`;
   const imageUrl = getImageUrl(blog?.fields.image?.fields.file.url as string | undefined);
   const readingTime = blog ? calculateReadingTime(blog.fields.body) : 1;
 
@@ -146,7 +146,7 @@ const BlogDetail = () => {
                 "name": "unCoded",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://uncoded.ch/logos/logo-complete.png"
+                  "url": "https://www.uncoded.ch/logos/logo-complete.png"
                 }
               },
               "mainEntityOfPage": {
