@@ -5,5 +5,5 @@ Allow: /
 Disallow: /dashboard
 
 # Sitemaps
-Sitemap: https://uncoded.ch/sitemap.xml
+Sitemap: https://www.uncoded.ch/sitemap.xml
 
